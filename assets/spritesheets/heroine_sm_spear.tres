@@ -1,0 +1,49 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "attack1_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "attack1_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "idle_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "run_spear"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+advance_condition = "attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+advance_condition = "running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+advance_condition = "attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+advance_condition = "not_running"
+
+[resource]
+states/attack1/node = SubResource( 5 )
+states/attack1/position = Vector2( 722, 65 )
+states/attack2/node = SubResource( 8 )
+states/attack2/position = Vector2( 722, 157 )
+states/idle_spear/node = SubResource( 10 )
+states/idle_spear/position = Vector2( 329, 162 )
+states/run_spear/node = SubResource( 11 )
+states/run_spear/position = Vector2( 329, 72 )
+transitions = [ "attack1", "attack2", SubResource( 9 ), "idle_spear", "run_spear", SubResource( 12 ), "run_spear", "attack1", SubResource( 13 ), "idle_spear", "attack1", SubResource( 14 ), "attack1", "idle_spear", SubResource( 15 ), "attack2", "idle_spear", SubResource( 16 ), "run_spear", "idle_spear", SubResource( 17 ) ]
+start_node = "idle_spear"
+graph_offset = Vector2( -37, -20 )

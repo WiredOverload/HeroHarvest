@@ -46,7 +46,7 @@
 [resource]
 animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 31 ), ExtResource( 5 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 8 ), ExtResource( 42 ) ],
-"loop": true,
+"loop": false,
 "name": "attack1",
 "speed": 12.0
 }, {
