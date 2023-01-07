@@ -2,27 +2,25 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Heroine_idle_13.png-123e50837df314b30b40d3f2887626bf.s3tc.stex"
-path.etc="res://.import/Heroine_idle_13.png-123e50837df314b30b40d3f2887626bf.etc.stex"
+path="res://.import/Heroine_idle_13.png-123e50837df314b30b40d3f2887626bf.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/spritesheets/Heroine1/idle/Heroine_idle_13.png"
-dest_files=[ "res://.import/Heroine_idle_13.png-123e50837df314b30b40d3f2887626bf.s3tc.stex", "res://.import/Heroine_idle_13.png-123e50837df314b30b40d3f2887626bf.etc.stex" ]
+dest_files=[ "res://.import/Heroine_idle_13.png-123e50837df314b30b40d3f2887626bf.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=true
-flags/filter=true
+flags/repeat=0
+flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2

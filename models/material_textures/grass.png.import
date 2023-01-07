@@ -2,26 +2,24 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/grass.png-ef6d6c1a9bd65b42f2faadb8bf3b1522.s3tc.stex"
-path.etc="res://.import/grass.png-ef6d6c1a9bd65b42f2faadb8bf3b1522.etc.stex"
+path="res://.import/grass.png-ef6d6c1a9bd65b42f2faadb8bf3b1522.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://models/material_textures/grass.png"
-dest_files=[ "res://.import/grass.png-ef6d6c1a9bd65b42f2faadb8bf3b1522.s3tc.stex", "res://.import/grass.png-ef6d6c1a9bd65b42f2faadb8bf3b1522.etc.stex" ]
+dest_files=[ "res://.import/grass.png-ef6d6c1a9bd65b42f2faadb8bf3b1522.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=true
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false

@@ -2,27 +2,25 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Heroine_run_04.png-eb8b7e76afae9d4c3c5dca96cc9b3278.s3tc.stex"
-path.etc="res://.import/Heroine_run_04.png-eb8b7e76afae9d4c3c5dca96cc9b3278.etc.stex"
+path="res://.import/Heroine_run_04.png-eb8b7e76afae9d4c3c5dca96cc9b3278.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/spritesheets/Heroine1/run/Heroine_run_04.png"
-dest_files=[ "res://.import/Heroine_run_04.png-eb8b7e76afae9d4c3c5dca96cc9b3278.s3tc.stex", "res://.import/Heroine_run_04.png-eb8b7e76afae9d4c3c5dca96cc9b3278.etc.stex" ]
+dest_files=[ "res://.import/Heroine_run_04.png-eb8b7e76afae9d4c3c5dca96cc9b3278.stex" ]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=true
-flags/filter=true
+flags/repeat=0
+flags/filter=false
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
