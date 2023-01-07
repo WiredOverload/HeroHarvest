@@ -1,0 +1,62 @@
+[gd_resource type="SpriteFrames" load_steps=43 format=2]
+
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_05.png" type="Texture" id=1]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_07.png" type="Texture" id=2]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_10.png" type="Texture" id=3]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_14.png" type="Texture" id=4]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_09.png" type="Texture" id=5]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_06.png" type="Texture" id=6]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_07.png" type="Texture" id=7]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_12.png" type="Texture" id=8]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_08.png" type="Texture" id=9]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_02.png" type="Texture" id=10]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_12.png" type="Texture" id=11]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_01.png" type="Texture" id=12]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_03.png" type="Texture" id=13]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_00.png" type="Texture" id=14]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_06.png" type="Texture" id=15]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_03.png" type="Texture" id=16]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_15.png" type="Texture" id=17]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_05.png" type="Texture" id=18]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_01.png" type="Texture" id=19]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_04.png" type="Texture" id=20]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_11.png" type="Texture" id=21]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_13.png" type="Texture" id=22]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_08.png" type="Texture" id=23]
+[ext_resource path="res://assets/spritesheets/Heroine1/idle/Heroine_idle_09.png" type="Texture" id=24]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_06.png" type="Texture" id=25]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_02.png" type="Texture" id=26]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_10.png" type="Texture" id=27]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_04.png" type="Texture" id=28]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_03.png" type="Texture" id=29]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_01.png" type="Texture" id=30]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_08.png" type="Texture" id=31]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_05.png" type="Texture" id=32]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_10.png" type="Texture" id=33]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_00.png" type="Texture" id=34]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_00.png" type="Texture" id=35]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_11.png" type="Texture" id=36]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_04.png" type="Texture" id=37]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_11.png" type="Texture" id=38]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_07.png" type="Texture" id=39]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_09.png" type="Texture" id=40]
+[ext_resource path="res://assets/spritesheets/Heroine1/run/Heroine_run_02.png" type="Texture" id=41]
+[ext_resource path="res://assets/spritesheets/Heroine1/attack1/Heroine_attack1_13.png" type="Texture" id=42]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 34 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 31 ), ExtResource( 5 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 8 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "attack1",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 3 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 19 ), ExtResource( 41 ), ExtResource( 16 ), ExtResource( 37 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 39 ), ExtResource( 9 ), ExtResource( 40 ), ExtResource( 27 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+} ]

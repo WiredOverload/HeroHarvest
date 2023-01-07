@@ -49,5 +49,5 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = resting_y_vel
 	
-	$VirtualCameraRight.active = vel.x > move_speed * 0.5
-	$VirtualCameraLeft.active = vel.x < -move_speed * 0.5
+	$VirtualCameraRight.active = vel.x > move_speed.x * 0.5
+	$VirtualCameraLeft.active = vel.x < -move_speed.x * 0.5
