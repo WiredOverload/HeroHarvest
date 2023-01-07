@@ -20,8 +20,6 @@ transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 8.4
 
 [node name="VirtualCameraBrain" type="Node" parent="Camera"]
 script = ExtResource( 3 )
-camera_path = NodePath("..")
-run_in_editor = true
 
 [node name="Navigation" type="Navigation" parent="."]
 
