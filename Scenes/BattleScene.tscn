@@ -23,13 +23,15 @@ __meta__ = {
 }
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.71186, 5.61085 )
+transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 8.40779e-45, 2.25706, 2.46208 )
 
 [node name="VirtualCameraBrain" type="Node" parent="Camera"]
 script = ExtResource( 3 )
+camera_path = NodePath("..")
+run_in_editor = true
 
 [node name="Player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366286, 1.23127, -0.356926 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.231, -0.357 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
@@ -40,5 +42,27 @@ width = 0.5
 height = 0.5
 depth = 0.5
 
-[node name="VirtualCamera" type="Spatial" parent="Player"]
+[node name="VirtualCamera" type="Position3D" parent="Player"]
+transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 0, 0 )
 script = ExtResource( 2 )
+follow_offset = Vector3( 0, 0, 3 )
+position_smoothing = Vector3( 0.1, 0, 0 )
+rotation_smoothing = 0.0
+
+[node name="VirtualCameraRight" type="Position3D" parent="Player"]
+transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.34202, 0, -0.342021, 0.939692, 2, 0, 0 )
+script = ExtResource( 2 )
+priority = 15.0
+active = false
+follow_offset = Vector3( 0, 0, 3 )
+position_smoothing = Vector3( 0.05, 0, 0 )
+rotation_smoothing = 0.0
+
+[node name="VirtualCameraLeft" type="Position3D" parent="Player"]
+transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.342021, 0, -0.342021, 0.939693, -2, 0, 0 )
+script = ExtResource( 2 )
+priority = 15.0
+active = false
+follow_offset = Vector3( 0, 0, 3 )
+position_smoothing = Vector3( 0.05, 0, 0 )
+rotation_smoothing = 0.0
