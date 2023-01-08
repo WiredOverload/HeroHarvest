@@ -165,3 +165,4 @@ func apply_hit(source):
 
 func _on_HitstunTimer_timeout():
 	_reset_anim()
+

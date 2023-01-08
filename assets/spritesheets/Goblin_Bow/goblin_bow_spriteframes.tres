@@ -1,0 +1,134 @@
+[gd_resource type="SpriteFrames" load_steps=105 format=2]
+
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_36.png" type="Texture" id=1]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_25.png" type="Texture" id=2]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_18.png" type="Texture" id=3]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_20.png" type="Texture" id=4]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_28.png" type="Texture" id=5]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_30.png" type="Texture" id=6]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/hitstun/Heroine_goblin_bow_hitstun_0.png" type="Texture" id=7]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_34.png" type="Texture" id=8]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/hitstun/Heroine_goblin_bow_hitstun_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_00.png" type="Texture" id=10]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_31.png" type="Texture" id=11]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_01.png" type="Texture" id=12]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_05.png" type="Texture" id=13]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_06.png" type="Texture" id=14]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_07.png" type="Texture" id=15]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_03.png" type="Texture" id=16]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_19.png" type="Texture" id=17]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_21.png" type="Texture" id=18]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_29.png" type="Texture" id=19]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_04.png" type="Texture" id=20]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_08.png" type="Texture" id=21]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_23.png" type="Texture" id=22]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_09.png" type="Texture" id=23]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_10.png" type="Texture" id=24]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_02.png" type="Texture" id=25]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_24.png" type="Texture" id=26]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_11.png" type="Texture" id=27]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_32.png" type="Texture" id=28]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_12.png" type="Texture" id=29]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_17.png" type="Texture" id=30]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_27.png" type="Texture" id=31]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_26.png" type="Texture" id=32]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_33.png" type="Texture" id=33]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_35.png" type="Texture" id=34]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_22.png" type="Texture" id=35]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_03.png" type="Texture" id=36]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_00.png" type="Texture" id=37]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_04.png" type="Texture" id=38]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_01.png" type="Texture" id=39]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_02.png" type="Texture" id=40]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_05.png" type="Texture" id=41]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_06.png" type="Texture" id=42]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_07.png" type="Texture" id=43]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_08.png" type="Texture" id=44]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_09.png" type="Texture" id=45]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_11.png" type="Texture" id=46]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_10.png" type="Texture" id=47]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_15.png" type="Texture" id=48]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_18.png" type="Texture" id=49]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_21.png" type="Texture" id=50]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_05.png" type="Texture" id=51]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_00.png" type="Texture" id=52]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_21.png" type="Texture" id=53]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_14.png" type="Texture" id=54]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_13.png" type="Texture" id=55]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_20.png" type="Texture" id=56]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_01.png" type="Texture" id=57]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_22.png" type="Texture" id=58]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_04.png" type="Texture" id=59]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_17.png" type="Texture" id=60]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_23.png" type="Texture" id=61]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_17.png" type="Texture" id=62]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_19.png" type="Texture" id=63]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_24.png" type="Texture" id=64]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_16.png" type="Texture" id=65]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_22.png" type="Texture" id=66]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_13.png" type="Texture" id=67]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_07.png" type="Texture" id=68]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_11.png" type="Texture" id=69]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_03.png" type="Texture" id=70]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_15.png" type="Texture" id=71]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_06.png" type="Texture" id=72]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_10.png" type="Texture" id=73]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_18.png" type="Texture" id=74]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_12.png" type="Texture" id=75]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_09.png" type="Texture" id=76]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_23.png" type="Texture" id=77]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_02.png" type="Texture" id=78]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/run/Heroine_goblin_bow_run_19.png" type="Texture" id=79]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_14.png" type="Texture" id=80]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_08.png" type="Texture" id=81]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_16.png" type="Texture" id=82]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/death/Heroine_goblin_bow_death_20.png" type="Texture" id=83]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_16.png" type="Texture" id=84]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_13.png" type="Texture" id=85]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_14.png" type="Texture" id=86]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_15.png" type="Texture" id=87]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_13.png" type="Texture" id=88]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_09.png" type="Texture" id=89]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_02.png" type="Texture" id=90]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_14.png" type="Texture" id=91]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_12.png" type="Texture" id=92]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_03.png" type="Texture" id=93]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/idle/Heroine_goblin_bow_idle_15.png" type="Texture" id=94]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_04.png" type="Texture" id=95]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_00.png" type="Texture" id=96]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_01.png" type="Texture" id=97]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_06.png" type="Texture" id=98]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_07.png" type="Texture" id=99]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_08.png" type="Texture" id=100]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_10.png" type="Texture" id=101]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_11.png" type="Texture" id=102]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_05.png" type="Texture" id=103]
+[ext_resource path="res://assets/spritesheets/Goblin_Bow/attack/Heroine_goblin_bow_attack_12.png" type="Texture" id=104]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 96 ), ExtResource( 97 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 95 ), ExtResource( 103 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 89 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 104 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 84 ), ExtResource( 30 ), ExtResource( 3 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 18 ), ExtResource( 35 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 2 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 5 ), ExtResource( 19 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 8 ), ExtResource( 34 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "attack",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 57 ), ExtResource( 78 ), ExtResource( 70 ), ExtResource( 59 ), ExtResource( 51 ), ExtResource( 72 ), ExtResource( 68 ), ExtResource( 81 ), ExtResource( 76 ), ExtResource( 73 ), ExtResource( 69 ), ExtResource( 75 ), ExtResource( 55 ), ExtResource( 80 ), ExtResource( 48 ), ExtResource( 82 ), ExtResource( 62 ), ExtResource( 74 ), ExtResource( 63 ), ExtResource( 83 ), ExtResource( 53 ), ExtResource( 58 ), ExtResource( 77 ), ExtResource( 64 ) ],
+"loop": false,
+"name": "death",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "hitstun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 92 ), ExtResource( 88 ), ExtResource( 91 ), ExtResource( 94 ) ],
+"loop": true,
+"name": "idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 67 ), ExtResource( 54 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 49 ), ExtResource( 79 ), ExtResource( 56 ), ExtResource( 50 ), ExtResource( 66 ), ExtResource( 61 ) ],
+"loop": true,
+"name": "run",
+"speed": 24.0
+} ]
