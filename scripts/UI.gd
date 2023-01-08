@@ -12,10 +12,12 @@ Play idle animation until button is pressed
 Display Care, Harvest, or explore options
 """
 
-enum menus {MAIN, CARE, HARVEST, EXPLORE};
+enum menus {MAIN, TRAIN, FEED, EXPLORE, HARVEST}
 
 var menu = menus.MAIN;
 var menuSelection = 0;
+
+onready var animation = $MenuSelection;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,9 @@ func _process(delta):
 func _on_LeftButton_pressed():
 	menu = menus.MAIN;
 	menuSelection = 0;
+	
+	animation.animation = menus.keys()[menu];
+	animation.frame = menuSelection;
 
 #DOWN ARROW
 func _on_CenterButton_pressed():
@@ -37,33 +42,42 @@ func _on_CenterButton_pressed():
 	
 	match (menu):
 		menus.MAIN:
-			if(menuSelection > 2):
+			if(menuSelection > 3):
 				menuSelection = 0;
-		menus.CARE:
-			if(menuSelection > 1):
+		menus.TRAIN:
+			if(menuSelection > 2):
 				menuSelection = 0;
 		menus.HARVEST:
 			if(menuSelection > 1):
 				menuSelection = 0;
+	
+	animation.frame = menuSelection;
+	
 
 #ENTER
 func _on_RightButton_pressed():
 	match (menu):
 		menus.MAIN:
 			if(menuSelection == 0):
-				menu = menus.CARE;
-			if(menuSelection == 1):
-				menu = menus.HARVEST;
+				menu = menus.TRAIN;
 			if(menuSelection == 2):
 				menu = menus.EXPLORE;
-			pass
-		menus.CARE:
+			if(menuSelection == 2):
+				menu = menus.HARVEST;
+			menuSelection = 0;
+		menus.TRAIN:
 			if(menuSelection == 0):
-				#train, needs submenu I guess
+				#agility
 				pass
 			if(menuSelection == 1):
-				#feed
+				#brawn
 				pass
+			if(menuSelection == 2):
+				#mind
+				pass
+		menus.FEED:
+			#feed
+			pass
 		menus.HARVEST:
 			if(menuSelection == 0): #vs RPG gal
 				get_tree().change_scene("res://Scenes/BattleScene.tscn");
@@ -71,3 +85,5 @@ func _on_RightButton_pressed():
 				get_tree().change_scene("res://Scenes/BattleScene.tscn");
 		menus.EXPLORE:
 			get_tree().change_scene("res://Scenes/BattleScene.tscn");
+	
+	animation.animation = menus.keys()[menu];
