@@ -21,8 +21,8 @@ func _get_move_target(target: Spatial):
 		target_player = target
 	return current_target
 
-func _perform_attack(player: Spatial, target_position: Vector3):
-	if not attack_queued and not is_attacking and not in_hitstun and target_position.distance_to(global_translation) < 0.25:
+func _perform_attack(player: Spatial, target_position: Vector3, at_target: bool):
+	if at_target and not attack_queued and not is_attacking and not in_hitstun:
 		queue_attack()
 
 func launch_arrow():
