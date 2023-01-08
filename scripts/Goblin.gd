@@ -20,8 +20,6 @@ func _character_process(delta):
 	if Input.is_action_just_pressed("action_attack"):
 		queue_attack()
 	
-	_apply_input(input.normalized())
-	
 	if velocity.x > 0.5:
 		$VirtualCameraRight.active = true
 		$VirtualCameraLeft.active = false
