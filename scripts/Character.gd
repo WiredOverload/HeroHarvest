@@ -85,3 +85,7 @@ func set_anim_locked(v):
 func make_attack_available():
 	attack_available = true
 	update_attack_conditions()
+
+
+func _on_AttackHitbox_body_entered(body):
+	pass # Replace with function body.

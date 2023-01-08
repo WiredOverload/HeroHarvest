@@ -1,11 +1,64 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/spritesheets/heroine_spear_frames.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://scripts/VirtualCamera.gd" type="Script" id=4]
+[ext_resource path="res://assets/spritesheets/heroine_sm_spear.tres" type="AnimationNodeStateMachine" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "idle" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttackHitbox/CollisionShape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
+length = 0.958333
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frames")
@@ -80,6 +133,30 @@ tracks/4/keys = {
 "method": "make_attack_available"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttackHitbox/CollisionShape:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.541667, 0.750001 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AttackHitbox/CollisionShape:shape:extents")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.541667 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.350977, 0.328967, 0.5 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.958333
@@ -127,18 +204,128 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.958333 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.75, 0.958333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "begin_attack"
+}, {
+"args": [ true ],
+"method": "set_anim_locked"
+}, {
+"args": [ false ],
+"method": "set_anim_locked"
 }, {
 "args": [  ],
 "method": "end_attack"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("AttackHitbox/CollisionShape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.541667, 0.625001 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AttackHitbox/CollisionShape:shape:extents")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.541667 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.415325, 0.578472, 0.5 ) ]
+}
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+[sub_resource type="Animation" id=4]
+length = 1.33333
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 15 ]
+}
+
+[sub_resource type="Animation" id=5]
+loop = true
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.958333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 23 ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="Player" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -146,23 +333,33 @@ script = ExtResource( 1 )
 [node name="Sprite" parent="." index="1"]
 pixel_size = 0.005
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="CollisionShape" parent="AttackHitbox" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.773218, -0.0115093, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/RESET = SubResource( 1 )
 anims/attack_poke_spear = SubResource( 2 )
 anims/attack_slash_spear = SubResource( 3 )
+anims/idle_spear = SubResource( 4 )
+anims/run_spear = SubResource( 5 )
 
-[node name="AnimationTree" parent="." index="3"]
-parameters/playback = SubResource( 4 )
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = ExtResource( 5 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 6 )
 parameters/conditions/attack1 = false
 parameters/conditions/attack2 = false
+parameters/conditions/not_running = false
+parameters/conditions/running = false
 
-[node name="VirtualCamera" type="Position3D" parent="." index="4"]
+[node name="VirtualCamera" type="Position3D" parent="." index="5"]
 transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 0, 0 )
 script = ExtResource( 4 )
 follow_offset = Vector3( 0, 0, 3 )
 position_smoothing = Vector3( 0.1, 0, 0 )
 rotation_smoothing = 0.0
 
-[node name="VirtualCameraRight" type="Position3D" parent="." index="5"]
+[node name="VirtualCameraRight" type="Position3D" parent="." index="6"]
 transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.34202, 0, -0.342021, 0.939692, 1, 0, 0 )
 script = ExtResource( 4 )
 priority = 15.0
@@ -171,7 +368,7 @@ follow_offset = Vector3( 0, 0, 3 )
 position_smoothing = Vector3( 0.01, 0, 0 )
 rotation_smoothing = 0.0
 
-[node name="VirtualCameraLeft" type="Position3D" parent="." index="6"]
+[node name="VirtualCameraLeft" type="Position3D" parent="." index="7"]
 transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.342021, 0, -0.342021, 0.939693, -1, 0, 0 )
 script = ExtResource( 4 )
 priority = 15.0
