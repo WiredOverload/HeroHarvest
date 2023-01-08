@@ -156,7 +156,8 @@ func apply_hit(source):
 		anim_locked = true
 		hitstun_combo = 0
 		$HitstunTimer.start()
-	impulse += (global_translation - source.global_translation).normalized() * hit_nudge_impulse
+	if source:
+		impulse += (global_translation - source.global_translation).normalized() * hit_nudge_impulse
 	if current_hp > 0:
 		current_hp -= 1
 		if is_in_group("player"):

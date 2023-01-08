@@ -1,5 +1,7 @@
 extends "res://scripts/Character.gd"
 
+var dodge_speed_multiplier = 1.2
+
 var locked_input = null
 
 func _ready():
@@ -25,6 +27,7 @@ func _character_process(delta):
 			input.z -= 1
 		if Input.is_action_pressed("move_down"):
 			input.z += 1
+		input = input.normalized()
 	
 	if Input.is_action_just_pressed("action_attack"):
 		queue_attack()
@@ -35,9 +38,10 @@ func _character_process(delta):
 		locked_input = input
 		if locked_input.length_squared() == 0:
 			locked_input = Vector3(facing, 0, 0)
+		locked_input *= dodge_speed_multiplier
 	
 	if _can_move() or locked_input:
-		_apply_input(input.normalized())
+		_apply_input(input)
 	else:
 		_apply_input(Vector3())
 	
