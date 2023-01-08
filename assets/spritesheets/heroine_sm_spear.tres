@@ -4,7 +4,7 @@
 animation = "attack_poke_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "attack_poke_spear"
+animation = "attack_slash_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_spear"
