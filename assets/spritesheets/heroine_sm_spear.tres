@@ -1,10 +1,10 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=12 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=5]
-animation = "attack1_spear"
+animation = "attack_poke_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "attack1_spear"
+animation = "attack_poke_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_spear"
