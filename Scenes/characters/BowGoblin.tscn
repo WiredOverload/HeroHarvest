@@ -110,7 +110,8 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-length = 1.04167
+length = 41.625
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frames")
 tracks/0/interp = 1
@@ -276,8 +277,8 @@ aim_area_radius = 1.0
 
 [node name="Sprite" parent="." index="1"]
 frames = ExtResource( 1 )
-animation = "attack"
-frame = 36
+animation = "death"
+frame = 18
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 1 )

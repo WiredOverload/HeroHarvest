@@ -44,4 +44,5 @@ states/run/node = SubResource( 5 )
 states/run/position = Vector2( 255, 145 )
 transitions = [ "idle", "run", SubResource( 6 ), "run", "idle", SubResource( 7 ), "run", "attack", SubResource( 8 ), "idle", "attack", SubResource( 9 ), "attack", "idle", SubResource( 10 ) ]
 start_node = "idle"
+end_node = "death"
 graph_offset = Vector2( -232, 35 )

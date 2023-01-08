@@ -13,3 +13,5 @@ animation = "hitstun"
 
 [node name="CollisionShape" parent="AttackHitbox" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.719764, -0.110733, 0 )
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

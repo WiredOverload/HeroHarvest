@@ -25,3 +25,7 @@ func _character_process(delta):
 			facing = 1
 		
 		_perform_attack(target, target_position)
+
+
+func _on_DeathTimer_timeout():
+	queue_free()

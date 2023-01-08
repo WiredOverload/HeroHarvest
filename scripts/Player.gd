@@ -12,7 +12,7 @@ var weaponanims_bow = preload("res://assets/spritesheets/Ranger/ranger_sm_bow.tr
 var arrow_scene := preload("res://scenes/entities/Projectile.tscn")
 var arrow_speed: float = 10.0
 
-var max_arrow_target_dist = 10.0
+var max_arrow_target_dist = 4.0
 
 func set_weapon(w):
 	weapon = w
@@ -91,6 +91,8 @@ func launch_arrow():
 	
 	var my_squished_pos = global_translation * Vector3(0.5, 1, 1)
 	for x in get_tree().get_nodes_in_group("enemy"):
+		if x.dead:
+			continue
 		var s = sign(x.global_translation.x - global_translation.x)
 		if s == 0:
 			s = 1
@@ -113,3 +115,7 @@ func launch_arrow():
 	arrow.accel.y *= 2
 	arrow.launch(start, target_position, arrow_speed, "enemy")
 
+
+
+func _on_DeathTimer_timeout():
+	EventBus.emit("player_death", self)

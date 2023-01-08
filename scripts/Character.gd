@@ -28,6 +28,8 @@ var current_hp = hit_points
 
 var facing = 1
 
+var dead = false
+
 # base_move_speed squared
 var bmss = base_move_speed * base_move_speed
 var bmxz = base_move_speed.x * base_move_speed.z
@@ -37,6 +39,7 @@ func _character_process(delta):
 	pass
 
 func _reset_anim():
+	print("resetting animation ", name)
 	is_attacking = false
 	anim_locked = false
 	attack_queued = false
@@ -69,6 +72,9 @@ func _ready():
 	print(bmss)
 
 func _physics_process(delta):
+	if dead:
+		return
+	
 	velocity.x = 0
 	velocity.z = 0
 	
@@ -144,7 +150,7 @@ func _on_AttackHitbox_body_entered(body):
 	body.apply_hit(self)
 
 func apply_hit(source):
-	if in_iframes:
+	if in_iframes or dead:
 		return
 	if in_hitstun:
 		hitstun_combo += 1
@@ -162,10 +168,19 @@ func apply_hit(source):
 		current_hp -= 1
 		if is_in_group("player"):
 			EventBus.emit("player_health_update", self)
+		if current_hp == 0:
+			die()
 
 func reset_attack_count():
 	attack_count = 0
 
 func _on_HitstunTimer_timeout():
-	_reset_anim()
+	if not dead:
+		_reset_anim()
 
+func die():
+	dead = true
+	current_hp = 0
+	_reset_anim()
+	anim_tree["parameters/playback"].start("death")
+	$DeathTimer.start()
