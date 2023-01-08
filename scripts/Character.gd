@@ -147,7 +147,8 @@ func _on_AttackHitbox_body_entered(body):
 		"enemy" if body.is_in_group("enemy") else
 		"")
 	print("ping: %s hit %s" % [my_type, their_type])
-	body.apply_hit(self)
+	if my_type != their_type:
+		body.apply_hit(self)
 
 func apply_hit(source):
 	if in_iframes or dead:

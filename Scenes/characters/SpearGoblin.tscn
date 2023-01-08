@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/characters/Goblin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/spritesheets/Goblin_Spear/goblin_sm_spear.tres" type="AnimationNodeStateMachine" id=2]
@@ -30,6 +30,45 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 1.04167
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "death" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 24 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -240,6 +279,7 @@ script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 1 )
+anims/death_spear = SubResource( 7 )
 anims/hitstun_spear = SubResource( 2 )
 anims/idle_spear = SubResource( 3 )
 anims/poke_spear = SubResource( 4 )
@@ -252,3 +292,6 @@ parameters/playback = SubResource( 6 )
 parameters/conditions/attack1 = false
 parameters/conditions/not_running = false
 parameters/conditions/running = false
+
+[node name="NavigationAgent" parent="." index="7"]
+target_desired_distance = 0.1

@@ -893,4 +893,7 @@ follow_offset = Vector3( 0, 0, 5 )
 position_smoothing = Vector3( 0.01, 0, 0 )
 rotation_smoothing = 0.0
 
+[node name="HitstunTimer" parent="." index="8"]
+wait_time = 0.5
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

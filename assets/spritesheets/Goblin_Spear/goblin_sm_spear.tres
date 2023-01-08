@@ -1,7 +1,10 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "poke_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "death_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "hitstun_spear"
@@ -31,6 +34,8 @@ advance_condition = "attack1"
 [resource]
 states/attack1/node = SubResource( 2 )
 states/attack1/position = Vector2( 549, 136 )
+states/death/node = SubResource( 10 )
+states/death/position = Vector2( 99, 208 )
 states/hitstun/node = SubResource( 9 )
 states/hitstun/position = Vector2( 99, 136 )
 states/idle/node = SubResource( 1 )
@@ -39,4 +44,4 @@ states/run/node = SubResource( 3 )
 states/run/position = Vector2( 315, 75 )
 transitions = [ "idle", "run", SubResource( 4 ), "run", "attack1", SubResource( 5 ), "attack1", "idle", SubResource( 6 ), "run", "idle", SubResource( 7 ), "idle", "attack1", SubResource( 8 ) ]
 start_node = "idle"
-graph_offset = Vector2( -138, -38 )
+graph_offset = Vector2( -190, 41 )
