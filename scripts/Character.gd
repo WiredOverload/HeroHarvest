@@ -13,6 +13,7 @@ var is_attacking = false
 var anim_locked = false
 var attack_queued = false
 var attack_available = true
+var attack_count = 0
 
 # base_move_speed squared
 var bmss = base_move_speed * base_move_speed
@@ -55,10 +56,13 @@ func _physics_process(delta):
 	anim_tree["parameters/conditions/not_running"] = not running
 
 func update_attack_conditions():
-	anim_tree["parameters/conditions/attack"] = attack_queued && attack_available
+	for i in range(1, 3):
+		anim_tree["parameters/conditions/attack%d" % i] = attack_count == i && attack_queued && attack_available
 
 func queue_attack():
-	attack_queued = true
+	if not attack_queued:
+		attack_queued = true
+		attack_count += 1
 	update_attack_conditions()
 
 func begin_attack():
@@ -71,6 +75,8 @@ func end_attack():
 	is_attacking = false
 	attack_available = true
 	anim_locked = false
+	attack_count = 0
+	attack_queued = false
 	update_attack_conditions()
 
 func set_anim_locked(v):

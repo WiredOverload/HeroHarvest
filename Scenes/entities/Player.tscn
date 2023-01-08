@@ -66,6 +66,20 @@ tracks/3/keys = {
 "method": "end_attack"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.75 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "make_attack_available"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.958333
@@ -137,8 +151,9 @@ anims/attack_poke_spear = SubResource( 2 )
 anims/attack_slash_spear = SubResource( 3 )
 
 [node name="AnimationTree" parent="." index="3"]
-active = true
 parameters/playback = SubResource( 4 )
+parameters/conditions/attack1 = false
+parameters/conditions/attack2 = false
 
 [node name="VirtualCamera" type="Position3D" parent="." index="4"]
 transform = Transform( 0.999999, 0, 0, 0, 0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 0, 0 )

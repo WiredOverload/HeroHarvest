@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Spatial",
+"base": "Position3D",
 "class": "VirtualCamera",
 "language": "GDScript",
 "path": "res://scripts/VirtualCamera.gd"
