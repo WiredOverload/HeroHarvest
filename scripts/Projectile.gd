@@ -6,10 +6,17 @@ var accel = Vector3(0, -10, 0)
 var damages = "player"
 var disable_hit = false
 
-var time
-
-func _ready():
-	time = OS.get_ticks_msec()
+func launch(from: Vector3, to: Vector3, arrow_speed: float, dmg: String):
+	var start = from * Vector3(1, 0, 1)
+	var dart = to * Vector3(1, 0, 1)
+	
+	var dist := to.distance_to(from)
+	var t := dist / arrow_speed
+	
+	damages = dmg
+	global_translation = from
+	velocity = (dart - start).normalized() * arrow_speed
+	velocity.y = (to.y - from.y) * 0.5 / t - accel.y * t / 2.0
 
 func _physics_process(delta):
 	transform.origin += velocity * delta
@@ -35,7 +42,6 @@ func _on_Projectile_body_entered(body: PhysicsBody):
 		accel = Vector3()
 		set_physics_process(false)
 		$DestroyTimer.start()
-		print("time ", (OS.get_ticks_msec() - time)/1000.0)
 
 
 func _on_DestroyTimer_timeout():

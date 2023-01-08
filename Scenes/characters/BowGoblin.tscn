@@ -272,7 +272,7 @@ tracks/2/keys = {
 [node name="BowGoblin" instance=ExtResource( 2 )]
 script = ExtResource( 4 )
 keep_distance = 5.0
-aim_area_radius = 0.0
+aim_area_radius = 1.0
 
 [node name="Sprite" parent="." index="1"]
 frames = ExtResource( 1 )

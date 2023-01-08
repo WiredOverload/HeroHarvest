@@ -1,7 +1,7 @@
 extends "res://scripts/Goblin.gd"
 
 export(float) var keep_distance = 5
-export(float) var aim_area_radius := 0.0
+export(float) var aim_area_radius := 1.0
 
 var arrow_scene := preload("res://scenes/entities/Projectile.tscn")
 var arrow_speed: float = 5.0
@@ -27,18 +27,13 @@ func _perform_attack(player: Spatial, target_position: Vector3):
 
 func launch_arrow():
 	var start := global_translation
-	var a = _random_dir() * aim_area_radius * sqrt(rand_range(0, 1))
-	var dart: Vector3 = target_player.global_translation + a
-	
-	var dist := start.distance_to(dart)
-	var t := dist / arrow_speed
+	# purposefully non-uniform
+	var variance = _random_dir() * aim_area_radius * rand_range(0, 1)
+	var dart: Vector3 = target_player.global_translation + variance
 	
 	var arrow = arrow_scene.instance()
 	get_parent().add_child(arrow)
-	arrow.damages = "player"
-	arrow.global_translation = start
-	arrow.velocity = (dart - start).normalized() * arrow_speed
-	arrow.velocity.y = -arrow.accel.y * t / 2.0
+	arrow.launch(start, dart, arrow_speed, "player")
 	
 	current_target = null
 	target_player = null
