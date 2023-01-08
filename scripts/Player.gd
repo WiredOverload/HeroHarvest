@@ -1,5 +1,7 @@
 extends "res://scripts/Character.gd"
 
+var locked_input = null
+
 func _ready():
 	hit_points = 3
 	current_hp = 3
@@ -8,17 +10,17 @@ func _ready():
 func _character_process(delta):
 	var input = Vector3()
 	
-	if _can_move():
+	if locked_input:
+		input = locked_input
+	else:
 		if Input.is_action_pressed("move_left"):
 			input.x -= 1
 			if !Input.is_action_pressed("move_right"):
-				$Sprite.flip_h = true
-				$AttackHitbox.scale.x = -1
+				facing = -1
 		if Input.is_action_pressed("move_right"):
 			input.x += 1
 			if !Input.is_action_pressed("move_left"):
-				$Sprite.flip_h = false
-				$AttackHitbox.scale.x = 1
+				facing = 1
 		if Input.is_action_pressed("move_up"):
 			input.z -= 1
 		if Input.is_action_pressed("move_down"):
@@ -27,7 +29,17 @@ func _character_process(delta):
 	if Input.is_action_just_pressed("action_attack"):
 		queue_attack()
 	
-	_apply_input(input.normalized())
+	if not anim_locked and Input.is_action_just_pressed("action_dodge"):
+		_reset_anim()
+		$AnimationTree["parameters/playback"].start("dodgeroll")
+		locked_input = input
+		if locked_input.length_squared() == 0:
+			locked_input = Vector3(facing, 0, 0)
+	
+	if _can_move() or locked_input:
+		_apply_input(input.normalized())
+	else:
+		_apply_input(Vector3())
 	
 	if velocity.x > 0.5:
 		$VirtualCameraRight.active = true
@@ -36,3 +48,11 @@ func _character_process(delta):
 	if velocity.x < -0.5:
 		$VirtualCameraRight.active = false
 		$VirtualCameraLeft.active = true
+
+func end_roll():
+	locked_input = null
+
+func _reset_anim():
+	._reset_anim()
+	locked_input = null
+

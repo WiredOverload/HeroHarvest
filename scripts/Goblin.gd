@@ -15,12 +15,9 @@ func _character_process(delta):
 			input = input.normalized()
 			_apply_input(input)
 		
-		if global_translation.x - target.global_translation.x > 0:
-			$Sprite.flip_h = true
-			$AttackHitbox.scale.x = -1
-		if global_translation.x - target.global_translation.x < 0:
-			$Sprite.flip_h = false
-			$AttackHitbox.scale.x = 1
+		facing = sign(target.global_translation.x - global_translation.x)
+		if facing == 0:
+			facing = 1
 		
 		if not in_hitstun and target_position.distance_to(global_translation) < 0.25:
 			queue_attack()

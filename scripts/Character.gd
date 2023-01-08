@@ -26,6 +26,8 @@ var in_iframes = false
 var hit_points = 1
 var current_hp = hit_points
 
+var facing = 1
+
 # base_move_speed squared
 var bmss = base_move_speed * base_move_speed
 var bmxz = base_move_speed.x * base_move_speed.z
@@ -33,6 +35,19 @@ var bmxz = base_move_speed.x * base_move_speed.z
 func _character_process(delta):
 	print("override this")
 	pass
+
+func _reset_anim():
+	is_attacking = false
+	anim_locked = false
+	attack_queued = false
+	attack_available = true
+	attack_count = 0
+	in_hitstun = false
+	hitstun_combo = 0
+	in_iframes = false
+	update_attack_conditions()
+	anim_tree["parameters/playback"].start("idle")
+	$AttackHitbox/CollisionShape.disabled = true
 
 func _apply_input(input: Vector3):
 	var length = input.length()
@@ -47,7 +62,7 @@ func _apply_input(input: Vector3):
 	velocity.z += z * sign(input.z) * length
 
 func _can_move():
-	return not is_attacking and not in_hitstun
+	return not is_attacking and not in_hitstun and not anim_locked
 
 func _ready():
 	anim_tree.active = true
@@ -71,6 +86,9 @@ func _physics_process(delta):
 	var running = 1 if velocity.x != 0 || velocity.z != 0 else 0
 	anim_tree["parameters/conditions/running"] = running
 	anim_tree["parameters/conditions/not_running"] = not running
+	
+	$Sprite.flip_h = facing == -1
+	$AttackHitbox.scale.x = facing
 
 func update_attack_conditions():
 	var s = "parameters/conditions/attack"
@@ -107,8 +125,13 @@ func make_attack_available():
 	attack_available = true
 	update_attack_conditions()
 
+func set_iframes(v):
+	in_iframes = v
 
 func _on_AttackHitbox_body_entered(body):
+	if not body.is_in_group("character"):
+		return
+	
 	var my_type = (
 		"player" if is_in_group("player") else
 		"enemy" if is_in_group("enemy") else
@@ -127,10 +150,11 @@ func apply_hit(source):
 		hitstun_combo += 1
 		$HitstunTimer.start($HitstunTimer.wait_time - hitstun_combo * $HitstunTimer.wait_time / 5)
 	else:
+		_reset_anim()
 		anim_tree["parameters/playback"].start("hitstun")
 		in_hitstun = true
+		anim_locked = true
 		hitstun_combo = 0
-		end_attack()
 		$HitstunTimer.start()
 	impulse += (global_translation - source.global_translation).normalized() * hit_nudge_impulse
 	if current_hp > 0:
@@ -140,5 +164,4 @@ func apply_hit(source):
 
 
 func _on_HitstunTimer_timeout():
-	in_hitstun = false
-	anim_tree["parameters/playback"].start("idle")
+	_reset_anim()
