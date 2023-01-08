@@ -1,10 +1,13 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=13 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "attack_poke_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=8]
 animation = "attack_slash_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "hitstun_spear"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_spear"
@@ -41,10 +44,12 @@ states/attack1/node = SubResource( 5 )
 states/attack1/position = Vector2( 722, 72 )
 states/attack2/node = SubResource( 8 )
 states/attack2/position = Vector2( 722, 162 )
-states/idle_spear/node = SubResource( 10 )
-states/idle_spear/position = Vector2( 329, 162 )
-states/run_spear/node = SubResource( 11 )
-states/run_spear/position = Vector2( 329, 72 )
-transitions = [ "attack1", "attack2", SubResource( 9 ), "idle_spear", "run_spear", SubResource( 12 ), "run_spear", "attack1", SubResource( 13 ), "idle_spear", "attack1", SubResource( 14 ), "attack1", "idle_spear", SubResource( 15 ), "attack2", "idle_spear", SubResource( 16 ), "run_spear", "idle_spear", SubResource( 17 ) ]
-start_node = "idle_spear"
-graph_offset = Vector2( 99, -47 )
+states/hitstun/node = SubResource( 18 )
+states/hitstun/position = Vector2( 134, 111 )
+states/idle/node = SubResource( 10 )
+states/idle/position = Vector2( 329, 162 )
+states/run/node = SubResource( 11 )
+states/run/position = Vector2( 329, 72 )
+transitions = [ "attack1", "attack2", SubResource( 9 ), "idle", "run", SubResource( 12 ), "run", "attack1", SubResource( 13 ), "idle", "attack1", SubResource( 14 ), "attack1", "idle", SubResource( 15 ), "attack2", "idle", SubResource( 16 ), "run", "idle", SubResource( 17 ) ]
+start_node = "idle"
+graph_offset = Vector2( 19, -2 )

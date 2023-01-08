@@ -1,0 +1,42 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "poke_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "hitstun_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "idle_spear"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "run_spear"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=4]
+advance_condition = "running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+advance_condition = "not_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+advance_condition = "attack1"
+
+[resource]
+states/attack1/node = SubResource( 2 )
+states/attack1/position = Vector2( 549, 136 )
+states/hitstun/node = SubResource( 9 )
+states/hitstun/position = Vector2( 99, 136 )
+states/idle/node = SubResource( 1 )
+states/idle/position = Vector2( 315, 208 )
+states/run/node = SubResource( 3 )
+states/run/position = Vector2( 315, 75 )
+transitions = [ "idle", "run", SubResource( 4 ), "run", "attack1", SubResource( 5 ), "attack1", "idle", SubResource( 6 ), "run", "idle", SubResource( 7 ), "idle", "attack1", SubResource( 8 ) ]
+start_node = "idle"
+graph_offset = Vector2( -138, -38 )

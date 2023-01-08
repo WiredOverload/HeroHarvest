@@ -1,29 +1,26 @@
 extends "res://scripts/Character.gd"
 
 func _character_process(delta):
-	var input = Vector3()
+	var players = get_tree().get_nodes_in_group("player")
 	
-	if not is_attacking:
-		if Input.is_action_pressed("move_left"):
-			input.x -= 1
-			if !Input.is_action_pressed("move_right"):
-				$Sprite.flip_h = true
-		if Input.is_action_pressed("move_right"):
-			input.x += 1
-			if !Input.is_action_pressed("move_left"):
-				$Sprite.flip_h = false
-		if Input.is_action_pressed("move_up"):
-			input.z -= 1
-		if Input.is_action_pressed("move_down"):
-			input.z += 1
-	
-	if Input.is_action_just_pressed("action_attack"):
-		queue_attack()
-	
-	if velocity.x > 0.5:
-		$VirtualCameraRight.active = true
-		$VirtualCameraLeft.active = false
-	
-	if velocity.x < -0.5:
-		$VirtualCameraRight.active = false
-		$VirtualCameraLeft.active = true
+	if players.size() > 0:
+		var target = players[0]
+		var target_position = target.global_translation + (
+			Vector3(1, 0, 0) if target.global_translation.x < global_translation.x
+			else Vector3(-1, 0, 0))
+		
+		if _can_move():
+			var input = target_position - global_translation
+			input.y = 0
+			input = input.normalized()
+			_apply_input(input)
+		
+		if global_translation.x - target.global_translation.x > 0:
+			$Sprite.flip_h = true
+			$AttackHitbox.scale.x = -1
+		if global_translation.x - target.global_translation.x < 0:
+			$Sprite.flip_h = false
+			$AttackHitbox.scale.x = 1
+		
+		if not in_hitstun and target_position.distance_to(global_translation) < 0.25:
+			queue_attack()

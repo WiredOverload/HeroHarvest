@@ -3,15 +3,17 @@ extends "res://scripts/Character.gd"
 func _character_process(delta):
 	var input = Vector3()
 	
-	if not is_attacking:
+	if _can_move():
 		if Input.is_action_pressed("move_left"):
 			input.x -= 1
 			if !Input.is_action_pressed("move_right"):
 				$Sprite.flip_h = true
+				$AttackHitbox.scale.x = -1
 		if Input.is_action_pressed("move_right"):
 			input.x += 1
 			if !Input.is_action_pressed("move_left"):
 				$Sprite.flip_h = false
+				$AttackHitbox.scale.x = 1
 		if Input.is_action_pressed("move_up"):
 			input.z -= 1
 		if Input.is_action_pressed("move_down"):
