@@ -8,7 +8,9 @@
         {
             "name" : "Scene",
             "nodes" : [
-                0
+                0,
+                1,
+                2
             ]
         }
     ],
@@ -16,6 +18,24 @@
         {
             "mesh" : 0,
             "name" : "tile_grass"
+        },
+        {
+            "mesh" : 1,
+            "name" : "tree",
+            "translation" : [
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "bush",
+            "translation" : [
+                2,
+                0,
+                0
+            ]
         }
     ],
     "materials" : [
@@ -29,6 +49,18 @@
                 },
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.4000000059604645
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "trim_mat",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1,
+                    "texCoord" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
             }
         }
     ],
@@ -46,12 +78,44 @@
                     "material" : 0
                 }
             ]
+        },
+        {
+            "name" : "Cylinder",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "Cylinder.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 1
+                }
+            ]
         }
     ],
     "textures" : [
         {
             "sampler" : 0,
             "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
         }
     ],
     "images" : [
@@ -59,6 +123,11 @@
             "mimeType" : "image/png",
             "name" : "grass",
             "uri" : "material_textures/grass.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "trim",
+            "uri" : "material_textures/trim.png"
         }
     ],
     "accessors" : [
@@ -95,6 +164,74 @@
             "componentType" : 5123,
             "count" : 30,
             "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 64,
+            "max" : [
+                0.5500389933586121,
+                1.5,
+                0.4055320620536804
+            ],
+            "min" : [
+                -0.5496510863304138,
+                -0.5,
+                -0.40274426341056824
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 64,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 64,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 108,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 16,
+            "max" : [
+                0.5500389933586121,
+                0.5,
+                0.4055320620536804
+            ],
+            "min" : [
+                -0.5496510863304138,
+                -0.5,
+                -0.40274426341056824
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 16,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 16,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 24,
+            "type" : "SCALAR"
         }
     ],
     "bufferViews" : [
@@ -117,6 +254,46 @@
             "buffer" : 0,
             "byteLength" : 60,
             "byteOffset" : 640
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 768,
+            "byteOffset" : 700
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 768,
+            "byteOffset" : 1468
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 512,
+            "byteOffset" : 2236
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 216,
+            "byteOffset" : 2748
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 2964
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 3156
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 128,
+            "byteOffset" : 3348
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 48,
+            "byteOffset" : 3476
         }
     ],
     "samplers" : [
@@ -127,7 +304,7 @@
     ],
     "buffers" : [
         {
-            "byteLength" : 700,
+            "byteLength" : 3524,
             "uri" : "tile_grass.bin"
         }
     ]
