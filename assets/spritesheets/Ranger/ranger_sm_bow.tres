@@ -1,28 +1,25 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=16 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=5]
-animation = "attack_poke_spear"
-
-[sub_resource type="AnimationNodeAnimation" id=8]
-animation = "attack_slash_spear"
+animation = "bow_attack_regular"
 
 [sub_resource type="AnimationNodeAnimation" id=21]
-animation = "death_spear"
+animation = "bow_death"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
-animation = "dodgeroll_spear"
+animation = "bow_dodgeroll"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "empty"
 
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "hitstun_spear"
+animation = "bow_hitstun"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
-animation = "idle_spear"
+animation = "bow_idle"
 
 [sub_resource type="AnimationNodeAnimation" id=11]
-animation = "run_spear"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=9]
-advance_condition = "attack2"
+animation = "bow_run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
 advance_condition = "running"
@@ -38,10 +35,6 @@ switch_mode = 2
 auto_advance = true
 priority = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-switch_mode = 2
-auto_advance = true
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 advance_condition = "not_running"
 
@@ -49,21 +42,28 @@ advance_condition = "not_running"
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
+
 [resource]
 states/attack1/node = SubResource( 5 )
-states/attack1/position = Vector2( 722, 72 )
-states/attack2/node = SubResource( 8 )
-states/attack2/position = Vector2( 722, 162 )
-states/death_spear/node = SubResource( 21 )
-states/death_spear/position = Vector2( -49, 145 )
+states/attack1/position = Vector2( 537, 72 )
+states/bow_death/node = SubResource( 21 )
+states/bow_death/position = Vector2( -72, 144 )
 states/dodgeroll/node = SubResource( 19 )
 states/dodgeroll/position = Vector2( 134, 192 )
+states/empty/node = SubResource( 22 )
+states/empty/position = Vector2( 537, 162 )
 states/hitstun/node = SubResource( 18 )
-states/hitstun/position = Vector2( 134, 106 )
+states/hitstun/position = Vector2( 134, 111 )
 states/idle/node = SubResource( 10 )
 states/idle/position = Vector2( 329, 162 )
 states/run/node = SubResource( 11 )
 states/run/position = Vector2( 329, 72 )
-transitions = [ "attack1", "attack2", SubResource( 9 ), "idle", "run", SubResource( 12 ), "run", "attack1", SubResource( 13 ), "idle", "attack1", SubResource( 14 ), "attack1", "idle", SubResource( 15 ), "attack2", "idle", SubResource( 16 ), "run", "idle", SubResource( 17 ), "dodgeroll", "idle", SubResource( 20 ) ]
+transitions = [ "idle", "run", SubResource( 12 ), "run", "attack1", SubResource( 13 ), "idle", "attack1", SubResource( 14 ), "attack1", "idle", SubResource( 15 ), "run", "idle", SubResource( 17 ), "dodgeroll", "idle", SubResource( 20 ), "attack1", "empty", SubResource( 23 ), "empty", "attack1", SubResource( 24 ) ]
 start_node = "idle"
-graph_offset = Vector2( -242, -5 )
+graph_offset = Vector2( -266.603, -26 )

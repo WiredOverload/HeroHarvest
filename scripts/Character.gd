@@ -163,6 +163,8 @@ func apply_hit(source):
 		if is_in_group("player"):
 			EventBus.emit("player_health_update", self)
 
+func reset_attack_count():
+	attack_count = 0
 
 func _on_HitstunTimer_timeout():
 	_reset_anim()

@@ -8,7 +8,7 @@ height = 1.25
 radius = 0.25
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 0.350977, 0.34075, 0.5 )
+extents = Vector3( 0.350977, 0.328967, 0.5 )
 
 [node name="Character" type="KinematicBody" groups=["character"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.231, -0.357 )
