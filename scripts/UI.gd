@@ -1,5 +1,21 @@
 extends Control
 
+"""
+List of Actions:
+Feed RPG gal collected materials
+Pick RPG gal training
+Go out to get materials
+Harvest RPG gal
+Start final boss battle
+
+Play idle animation until button is pressed
+Display Care, Harvest, or explore options
+"""
+
+enum menus {MAIN, CARE, HARVEST, EXPLORE};
+
+var menu = menus.MAIN;
+var menuSelection = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,17 +26,48 @@ func _ready():
 func _process(delta):
 	pass
 
+#CANCEL
+func _on_LeftButton_pressed():
+	menu = menus.MAIN;
+	menuSelection = 0;
 
-func _on_get_materials_button_pressed():
-	#get_tree().change_scene_to_file("res://main.tscn")
-	pass # Replace with function body.
+#DOWN ARROW
+func _on_CenterButton_pressed():
+	menuSelection += 1;
+	
+	match (menu):
+		menus.MAIN:
+			if(menuSelection > 2):
+				menuSelection = 0;
+		menus.CARE:
+			if(menuSelection > 1):
+				menuSelection = 0;
+		menus.HARVEST:
+			if(menuSelection > 1):
+				menuSelection = 0;
 
-
-func _on_harvest_button_pressed():
-	#get_tree().change_scene_to_file("res://main.tscn")
-	pass # Replace with function body.
-
-
-func _on_boss_battle_button_pressed():
-	#get_tree().change_scene_to_file("res://main.tscn")
-	pass # Replace with function body.
+#ENTER
+func _on_RightButton_pressed():
+	match (menu):
+		menus.MAIN:
+			if(menuSelection == 0):
+				menu = menus.CARE;
+			if(menuSelection == 1):
+				menu = menus.HARVEST;
+			if(menuSelection == 2):
+				menu = menus.EXPLORE;
+			pass
+		menus.CARE:
+			if(menuSelection == 0):
+				#train, needs submenu I guess
+				pass
+			if(menuSelection == 1):
+				#feed
+				pass
+		menus.HARVEST:
+			if(menuSelection == 0): #vs RPG gal
+				get_tree().change_scene("res://Scenes/BattleScene.tscn");
+			if(menuSelection == 1): #vs end boss
+				get_tree().change_scene("res://Scenes/BattleScene.tscn");
+		menus.EXPLORE:
+			get_tree().change_scene("res://Scenes/BattleScene.tscn");
