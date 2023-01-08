@@ -21,6 +21,10 @@ var attack_available = true
 var attack_count = 0
 var in_hitstun = false
 var hitstun_combo = 0
+var in_iframes = false
+
+var hit_points = 1
+var current_hp = hit_points
 
 # base_move_speed squared
 var bmss = base_move_speed * base_move_speed
@@ -117,6 +121,8 @@ func _on_AttackHitbox_body_entered(body):
 	body.apply_hit(self)
 
 func apply_hit(source):
+	if in_iframes:
+		return
 	if in_hitstun:
 		hitstun_combo += 1
 		$HitstunTimer.start($HitstunTimer.wait_time - hitstun_combo * $HitstunTimer.wait_time / 5)
@@ -127,6 +133,10 @@ func apply_hit(source):
 		end_attack()
 		$HitstunTimer.start()
 	impulse += (global_translation - source.global_translation).normalized() * hit_nudge_impulse
+	if current_hp > 0:
+		current_hp -= 1
+		if is_in_group("player"):
+			EventBus.emit("player_health_update", self)
 
 
 func _on_HitstunTimer_timeout():

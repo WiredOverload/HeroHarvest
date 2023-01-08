@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "EventListener",
+"language": "GDScript",
+"path": "res://scripts/EventBus/EventListener.gd"
+}, {
 "base": "Position3D",
 "class": "VirtualCamera",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/VirtualCameraBrain.gd"
 } ]
 _global_script_class_icons={
+"EventListener": "",
 "VirtualCamera": "",
 "VirtualCameraBrain": ""
 }
@@ -27,8 +33,12 @@ _global_script_class_icons={
 [application]
 
 config/name="HeroHarvest"
-run/main_scene="res://scenes/BattleScene.tscn"
+run/main_scene="res://scenes/RootScene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+EventBus="*res://scripts/EventBus/autoload/EventBus.gd"
 
 [editor_plugins]
 

@@ -1,5 +1,10 @@
 extends "res://scripts/Character.gd"
 
+func _ready():
+	hit_points = 3
+	current_hp = 3
+	EventBus.emit("player_health_update", self)
+
 func _character_process(delta):
 	var input = Vector3()
 	
