@@ -2,9 +2,9 @@ extends Node
 
 
 #player and RGP Gal stats
-var playerAttack = 0;
-var playerMaxHealth = 0;
-var playerDefense = 0;
+var playerBrawn = 0;
+var playerAgility = 0;
+var playerMind = 0;
 
 var RPGAgility = 0;
 var RPGBrawn = 0;
@@ -64,3 +64,13 @@ func _on_ItemGetEventListener_receive(arg: Item.ItemDef):
 			boots.append(arg.item_level)
 		"tome":
 			books.append(arg.item_level)
+
+
+func _on_Menu_harvest():
+	playerAgility += RPGAgility
+	playerBrawn += RPGBrawn
+	playerMind += RPGMind
+	
+	RPGAgility = 0
+	RPGBrawn = 0
+	RPGMind = 0

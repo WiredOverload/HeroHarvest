@@ -6,6 +6,7 @@ onready var battle_scene = get_node(battle_scene_node)
 signal boots_changed(new)
 signal meats_changed(new)
 signal books_changed(new)
+signal harvest()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,3 +37,8 @@ func explore(type: String):
 func _on_UI_request_explore(type):
 	explore(type)
 	visible = false
+
+
+func _on_UI_harvest():
+	emit_signal("harvest")
+	pass # Replace with function body.

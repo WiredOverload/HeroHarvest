@@ -22,3 +22,4 @@ battle_scene_node = NodePath("../BattleScene")
 [connection signal="books_changed" from="Manager" to="Menu" method="_on_Manager_books_changed"]
 [connection signal="boots_changed" from="Manager" to="Menu" method="_on_Manager_boots_changed"]
 [connection signal="meats_changed" from="Manager" to="Menu" method="_on_Manager_meats_changed"]
+[connection signal="harvest" from="Menu" to="Manager" method="_on_Menu_harvest"]
