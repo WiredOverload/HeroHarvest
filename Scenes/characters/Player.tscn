@@ -260,7 +260,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-length = 1.54167
+length = 1.29167
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frames")
@@ -293,10 +293,10 @@ tracks/2/loop_wrap = false
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 1.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 36 ]
+"values": [ 0, 30 ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -305,7 +305,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.0416667, 0.541667, 1, 1.16667, 1.25, 1.54167 ),
+"times": PoolRealArray( 0, 0.0416667, 0.416667, 0.75, 0.958333, 1, 1.29167 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -320,11 +320,11 @@ tracks/3/keys = {
 "args": [  ],
 "method": "launch_arrow"
 }, {
-"args": [  ],
-"method": "make_attack_available"
-}, {
 "args": [ false ],
 "method": "set_anim_locked"
+}, {
+"args": [  ],
+"method": "make_attack_available"
 }, {
 "args": [  ],
 "method": "end_attack"
@@ -332,7 +332,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-length = 41.625
+length = 1.04167
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frames")

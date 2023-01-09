@@ -4,13 +4,28 @@ class_name Item
 class ItemDef:
 	var item_type = "food"
 	var item_level = 1
+	func _init(type: String, level: int):
+		item_type = type
+		item_level = level
 
-var item_def: ItemDef = ItemDef.new()
+export(Array, String) var item_names = []
+export(Array, Texture) var item_textures = []
+export(Texture) var default_texture = null
+
+var item_def: ItemDef = ItemDef.new("food", 1) setget set_item_def
 
 var consumed = false
 
 var velocity = Vector3(5, 5, 0)
 var gravity = Vector3(0, -10, 0)
+
+func set_item_def(def: ItemDef):
+	item_def = def
+	var i = item_names.find(def.item_type)
+	if i == -1:
+		$Sprite.texture = default_texture
+	else:
+		$Sprite.texture = item_textures[i]
 
 func _physics_process(delta):
 	if consumed:
@@ -30,4 +45,8 @@ func _on_Area_body_entered(body):
 		consumed = true
 		EventBus.emit("item_get", item_def)
 		queue_free()
+
+func toss():
+	velocity = velocity.rotated(Vector3(0, 1, 0), rand_range(-PI, PI))
+	velocity *= Vector3(1, 0, 1) * sqrt(rand_range(0, 1))
 

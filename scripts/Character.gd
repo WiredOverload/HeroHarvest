@@ -146,7 +146,6 @@ func _on_AttackHitbox_body_entered(body):
 		"player" if body.is_in_group("player") else
 		"enemy" if body.is_in_group("enemy") else
 		"")
-	print("ping: %s hit %s" % [my_type, their_type])
 	if my_type != their_type:
 		body.apply_hit(self)
 

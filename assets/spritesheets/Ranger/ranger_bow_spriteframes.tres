@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=124 format=2]
+[gd_resource type="SpriteFrames" load_steps=118 format=2]
 
 [ext_resource path="res://assets/spritesheets/Ranger/run/Heroine_ranger_run_21.png" type="Texture" id=1]
 [ext_resource path="res://assets/spritesheets/Ranger/run/Heroine_ranger_run_14.png" type="Texture" id=2]
@@ -26,10 +26,8 @@
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_33.png" type="Texture" id=24]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_34.png" type="Texture" id=25]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_30.png" type="Texture" id=26]
-[ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_05.png" type="Texture" id=27]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_13.png" type="Texture" id=28]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_12.png" type="Texture" id=29]
-[ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_14.png" type="Texture" id=30]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_15.png" type="Texture" id=31]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_10.png" type="Texture" id=32]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_16.png" type="Texture" id=33]
@@ -38,14 +36,10 @@
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_19.png" type="Texture" id=36]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_20.png" type="Texture" id=37]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_01.png" type="Texture" id=38]
-[ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_00.png" type="Texture" id=39]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_08.png" type="Texture" id=40]
-[ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_02.png" type="Texture" id=41]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_03.png" type="Texture" id=42]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_04.png" type="Texture" id=43]
-[ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_07.png" type="Texture" id=44]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_06.png" type="Texture" id=45]
-[ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_09.png" type="Texture" id=46]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_11.png" type="Texture" id=47]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_21.png" type="Texture" id=48]
 [ext_resource path="res://assets/spritesheets/Ranger/attack_regular/Heroine_ranger_attack_regular_22.png" type="Texture" id=49]
@@ -126,7 +120,7 @@
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 39 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 27 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 40 ), ExtResource( 46 ), ExtResource( 32 ), ExtResource( 47 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 32 ), ExtResource( 47 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "attack_regular",
 "speed": 24.0
