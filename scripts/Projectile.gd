@@ -5,6 +5,7 @@ var velocity = Vector3()
 var accel = Vector3(0, -10, 0)
 var damages = "player"
 var disable_hit = false
+var die_on_hit = true
 
 func launch(from: Vector3, to: Vector3, arrow_speed: float, dmg: String):
 	var start = from * Vector3(1, 0, 1)

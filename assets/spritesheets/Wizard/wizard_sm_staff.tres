@@ -1,0 +1,76 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=17 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "staff_attack_regular"
+
+[sub_resource type="AnimationNodeTimeScale" id=14]
+
+[sub_resource type="AnimationNodeBlendTree" id=1]
+graph_offset = Vector2( -484, -36 )
+nodes/Animation/node = SubResource( 13 )
+nodes/Animation/position = Vector2( -303, 94 )
+nodes/TimeScale/node = SubResource( 14 )
+nodes/TimeScale/position = Vector2( -20, 141 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "staff_death"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "staff_dodgeroll"
+
+[sub_resource type="AnimationNodeTimeScale" id=16]
+
+[sub_resource type="AnimationNodeBlendTree" id=17]
+graph_offset = Vector2( -463, -51 )
+nodes/Animation/node = SubResource( 15 )
+nodes/Animation/position = Vector2( -339, 97 )
+nodes/TimeScale/node = SubResource( 16 )
+nodes/TimeScale/position = Vector2( -4, 144 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "staff_hitstun"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "staff_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "staff_run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+advance_condition = "running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+advance_condition = "not_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
+[resource]
+states/attack1/node = SubResource( 1 )
+states/attack1/position = Vector2( 641, 161 )
+states/death/node = SubResource( 2 )
+states/death/position = Vector2( 152, 78 )
+states/dodgeroll/node = SubResource( 17 )
+states/dodgeroll/position = Vector2( 188, 259 )
+states/hitstun/node = SubResource( 4 )
+states/hitstun/position = Vector2( 131, 161 )
+states/idle/node = SubResource( 5 )
+states/idle/position = Vector2( 432, 259 )
+states/run/node = SubResource( 6 )
+states/run/position = Vector2( 408, 108 )
+transitions = [ "idle", "run", SubResource( 8 ), "run", "idle", SubResource( 9 ), "run", "attack1", SubResource( 10 ), "idle", "attack1", SubResource( 11 ), "attack1", "idle", SubResource( 12 ), "dodgeroll", "idle", SubResource( 18 ) ]
+start_node = "idle"
+graph_offset = Vector2( -24, -22 )
