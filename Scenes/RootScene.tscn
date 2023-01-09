@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/GameplayUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/BattleScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Manager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Menu.tscn" type="PackedScene" id=4]
 
 [node name="RootScene" type="Node"]
 
 [node name="BattleScene" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="GameplayUI" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="Manager" parent="." instance=ExtResource( 3 )]
+
+[node name="Menu" parent="." instance=ExtResource( 4 )]
+
+[connection signal="books_changed" from="Manager" to="Menu" method="_on_Manager_books_changed"]
+[connection signal="boots_changed" from="Manager" to="Menu" method="_on_Manager_boots_changed"]
+[connection signal="meats_changed" from="Manager" to="Menu" method="_on_Manager_meats_changed"]

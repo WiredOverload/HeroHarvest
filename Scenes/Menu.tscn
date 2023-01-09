@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/tamagachi.png" type="Texture" id=2]
@@ -8,6 +8,76 @@
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/entities/food.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/Menu/tamagachi.png" type="Texture" id=8]
+[ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/Menu/tamaFood.png" type="Texture" id=10]
+[ext_resource path="res://assets/Menu/BigX.png" type="Texture" id=11]
+[ext_resource path="res://scripts/ui/BootNum.gd" type="Script" id=12]
+[ext_resource path="res://scripts/ui/BookNum.gd" type="Script" id=13]
+[ext_resource path="res://scripts/ui/MeatNum.gd" type="Script" id=14]
+[ext_resource path="res://scripts/ui/Level.gd" type="Script" id=15]
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 768, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 1024, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 1280, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 1536, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 1792, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 2048, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 2304, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 1
+atlas = ExtResource( 8 )
+region = Rect2( 2560, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=41]
+animations = [ {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 1
@@ -102,66 +172,54 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=47]
 flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 256, 256 )
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=48]
 flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 256, 0, 256, 256 )
+atlas = ExtResource( 11 )
+region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 512, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=33]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 768, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=34]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 1024, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=35]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 1280, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=36]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 1536, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=37]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 1792, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=38]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 2048, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=39]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 2304, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=40]
-flags = 1
-atlas = ExtResource( 8 )
-region = Rect2( 2560, 0, 256, 256 )
-
-[sub_resource type="SpriteFrames" id=41]
+[sub_resource type="SpriteFrames" id=49]
 animations = [ {
-"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
-"loop": true,
+"frames": [ null, SubResource( 47 ), SubResource( 48 ) ],
+"loop": false,
 "name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 1
+atlas = ExtResource( 10 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 1
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 1
+atlas = ExtResource( 10 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=43]
+animations = [ {
+"frames": [ SubResource( 44 ) ],
+"loop": true,
+"name": "book",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 45 ) ],
+"loop": true,
+"name": "boot",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 46 ) ],
+"loop": true,
+"name": "meat",
 "speed": 5.0
 } ]
 
@@ -291,6 +349,13 @@ margin_bottom = 496.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UI"]
+position = Vector2( 512, 300 )
+scale = Vector2( 2.34375, 2.34375 )
+frames = SubResource( 41 )
+frame = 6
+playing = true
+
 [node name="MenuSelection" type="AnimatedSprite" parent="UI"]
 visible = false
 position = Vector2( 512, 336 )
@@ -298,11 +363,101 @@ scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
 animation = "FEED"
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="UI"]
-position = Vector2( 512, 300 )
-scale = Vector2( 2.34375, 2.34375 )
-frames = SubResource( 41 )
-playing = true
+[node name="BigX" type="AnimatedSprite" parent="UI"]
+position = Vector2( 512, 344 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 49 )
+
+[node name="TopUI" type="Control" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BootNum" type="RichTextLabel" parent="UI/TopUI"]
+margin_left = 511.0
+margin_top = 263.0
+margin_right = 526.0
+margin_bottom = 280.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+meta_underlined = false
+text = "0"
+scroll_active = false
+script = ExtResource( 12 )
+
+[node name="BookNum" type="RichTextLabel" parent="UI/TopUI"]
+margin_left = 484.0
+margin_top = 263.0
+margin_right = 499.0
+margin_bottom = 280.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+meta_underlined = false
+text = "0"
+scroll_active = false
+script = ExtResource( 13 )
+
+[node name="MeatNum" type="RichTextLabel" parent="UI/TopUI"]
+margin_left = 455.0
+margin_top = 263.0
+margin_right = 470.0
+margin_bottom = 280.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+meta_underlined = false
+text = "0"
+scroll_active = false
+script = ExtResource( 14 )
+
+[node name="Level" type="RichTextLabel" parent="UI/TopUI"]
+margin_left = 561.0
+margin_top = 262.0
+margin_right = 597.0
+margin_bottom = 279.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+meta_underlined = false
+text = "0"
+scroll_active = false
+script = ExtResource( 15 )
+
+[node name="lvl" type="RichTextLabel" parent="UI/TopUI"]
+margin_left = 529.0
+margin_top = 262.0
+margin_right = 561.0
+margin_bottom = 279.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+meta_underlined = false
+text = "lvl"
+scroll_active = false
+
+[node name="Meat" type="AnimatedSprite" parent="UI/TopUI"]
+position = Vector2( 449, 271 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 43 )
+animation = "meat"
+
+[node name="Book" type="AnimatedSprite" parent="UI/TopUI"]
+position = Vector2( 479, 271 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 43 )
+animation = "book"
+
+[node name="Boot" type="AnimatedSprite" parent="UI/TopUI"]
+position = Vector2( 505, 271 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 43 )
+animation = "boot"
 
 [node name="RPGGuy" type="AnimatedSprite" parent="."]
 position = Vector2( 512, 376 )
@@ -313,7 +468,14 @@ playing = true
 script = ExtResource( 5 )
 foodScene = ExtResource( 7 )
 
+[node name="TrainTimer" type="Timer" parent="RPGGuy"]
+wait_time = 5.0
+
+[connection signal="books_changed" from="." to="UI/TopUI/BookNum" method="_on_Menu_books_changed"]
+[connection signal="boots_changed" from="." to="UI/TopUI/BootNum" method="_on_Menu_boots_changed"]
+[connection signal="meats_changed" from="." to="UI/TopUI/MeatNum" method="_on_Menu_meats_changed"]
 [connection signal="pressed" from="UI/LeftButton" to="UI" method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="UI/CenterButton" to="UI" method="_on_CenterButton_pressed"]
 [connection signal="pressed" from="UI/RightButton" to="UI" method="_on_RightButton_pressed"]
 [connection signal="visibility_changed" from="RPGGuy" to="RPGGuy" method="_on_RPGGuy_visibility_changed"]
+[connection signal="timeout" from="RPGGuy/TrainTimer" to="RPGGuy" method="_on_TrainTimer_timeout"]
