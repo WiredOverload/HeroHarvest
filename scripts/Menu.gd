@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 export(NodePath) var battle_scene_node: NodePath = ""
 onready var battle_scene = get_node(battle_scene_node)
@@ -36,3 +36,19 @@ func explore(type: String):
 func _on_UI_request_explore(type):
 	explore(type)
 	visible = false
+
+
+func _on_EventListener_receive(arg):
+	$DeathTimer.start()
+
+
+func _on_DeathTimer_timeout():
+	battle_scene.destroy_stage()
+	visible = true
+	$UI.menu
+
+
+
+
+func _on_EventListener_tree_exiting():
+	pass

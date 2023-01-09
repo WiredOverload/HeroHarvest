@@ -30,3 +30,4 @@ func create_stage(type: String, level: int) -> Player:
 func destroy_stage():
 	stage.queue_free()
 	player = null
+	EventBus.emit("stage_unload", null)

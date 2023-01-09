@@ -460,6 +460,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [ 1.0, 2.0, 1.0, 1.0 ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("DodgeSFX")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=12]
 length = 0.0833333
@@ -707,6 +721,20 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 1.0, 2.0, 1.0 ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("DodgeSFX")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -1030,6 +1058,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [ 1.0, 2.0, 1.0, 1.0 ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("DodgeSFX")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=22]
 length = 0.0833333
@@ -1160,6 +1202,10 @@ radius = 3.0
 script = ExtResource( 5 )
 weapon = "spear"
 anim_move_multiplier = 1.0
+
+[node name="Sprite" parent="." index="1"]
+frames = ExtResource( 8 )
+animation = "dodgeroll"
 
 [node name="CollisionShape" parent="AttackHitbox" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.773218, -0.0115093, 0 )

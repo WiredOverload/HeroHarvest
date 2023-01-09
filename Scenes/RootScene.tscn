@@ -17,8 +17,13 @@
 [node name="Menu" parent="." instance=ExtResource( 4 )]
 battle_scene_node = NodePath("../BattleScene")
 
+[node name="AnimatedSprite" parent="Menu/UI" index="5"]
+frame = 1
+
 [node name="Warning" parent="." instance=ExtResource( 5 )]
 
 [connection signal="books_changed" from="Manager" to="Menu" method="_on_Manager_books_changed"]
 [connection signal="boots_changed" from="Manager" to="Menu" method="_on_Manager_boots_changed"]
 [connection signal="meats_changed" from="Manager" to="Menu" method="_on_Manager_meats_changed"]
+
+[editable path="Menu"]

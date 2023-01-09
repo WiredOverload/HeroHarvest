@@ -186,6 +186,7 @@ func die():
 	_reset_anim()
 	anim_tree["parameters/playback"].start("death")
 	$DeathTimer.start()
+	$DeathSFX.play()
 
 func set_action_speed(spd):
 	if "parameters/attack1/TimeScale/scale" in $AnimationTree:

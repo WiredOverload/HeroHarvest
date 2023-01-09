@@ -28,9 +28,14 @@ func _physics_process(delta):
 		target = null
 		return
 	
+	if not is_instance_valid(target):
+		target = null
+	
 	var priority = NAN
 	var active_cams = []
 	for i in range(0, vcams.size()):
+		if not is_instance_valid(vcams[i]):
+			continue
 		if vcams[i].active:
 			if is_nan(priority):
 				priority = vcams[i].priority
@@ -79,10 +84,11 @@ func add_vcam(vcam):
 
 func remove_vcam(vcam):
 	var i = vcams.find(vcam)
+	print("removing vcam ", vcam)
 	if i == -1:
+		print("could not find cam ", vcam)
 		return
 	vcams.remove(i)
-	update_vcam(null)
 
 func update_vcam(_vcam):
 	vcams.sort_custom(self, "vcam_comparator")
