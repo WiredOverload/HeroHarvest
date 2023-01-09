@@ -15,14 +15,18 @@ var arrow_speed: float = 10.0
 
 var max_arrow_target_dist = 4.0
 
+onready var managerScene = get_tree().root.find_node("Manager", true, false)
+
 var level = 1 setget set_level
+var attackPower = 0
 
 func set_level(l):
 	level = l
-	hit_points = level
+	hit_points = 3 + managerScene.RPGMind
 	current_hp = hit_points
-	var atkspd = lerp(1, 2, (level - 1) / 9)
+	var atkspd = 1 + managerScene.RPGAgility / 6 #lerp(1, 2, (level - 1) / 9)
 	set_action_speed(atkspd)
+	attackPower = managerScene.RPGBrawn
 
 func set_weapon(w):
 	weapon = w
