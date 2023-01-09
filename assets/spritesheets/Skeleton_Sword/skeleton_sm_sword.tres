@@ -1,7 +1,17 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=13 format=2]
 
-[sub_resource type="AnimationNodeAnimation" id=1]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "attack"
+
+[sub_resource type="AnimationNodeTimeScale" id=9]
+
+[sub_resource type="AnimationNodeBlendTree" id=10]
+graph_offset = Vector2( -355, -20 )
+nodes/Animation/node = SubResource( 8 )
+nodes/Animation/position = Vector2( -102, 117 )
+nodes/TimeScale/node = SubResource( 9 )
+nodes/TimeScale/position = Vector2( 80, 140 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "death"
@@ -21,26 +31,26 @@ advance_condition = "running"
 [sub_resource type="AnimationNodeStateMachineTransition" id=7]
 advance_condition = "not_running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
 advance_condition = "attack1"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 advance_condition = "attack1"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
 switch_mode = 2
 auto_advance = true
 
 [resource]
-states/attack1/node = SubResource( 1 )
-states/attack1/position = Vector2( 588, 107 )
+states/attack1/node = SubResource( 10 )
+states/attack1/position = Vector2( 631, 125 )
 states/death/node = SubResource( 2 )
 states/death/position = Vector2( 217, 192 )
 states/hitstun/node = SubResource( 3 )
-states/hitstun/position = Vector2( 230, 93 )
+states/hitstun/position = Vector2( 217, 93 )
 states/idle/node = SubResource( 4 )
-states/idle/position = Vector2( 409, 213 )
+states/idle/position = Vector2( 426, 207 )
 states/run/node = SubResource( 5 )
 states/run/position = Vector2( 426, 99 )
-transitions = [ "idle", "run", SubResource( 6 ), "run", "idle", SubResource( 7 ), "run", "attack1", SubResource( 8 ), "idle", "attack1", SubResource( 9 ), "attack1", "idle", SubResource( 10 ) ]
+transitions = [ "idle", "run", SubResource( 6 ), "run", "idle", SubResource( 7 ), "run", "attack1", SubResource( 11 ), "idle", "attack1", SubResource( 12 ), "attack1", "idle", SubResource( 13 ) ]
 start_node = "idle"

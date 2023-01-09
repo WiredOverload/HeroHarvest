@@ -1,7 +1,17 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=13 format=2]
 
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "poke_spear"
+
+[sub_resource type="AnimationNodeTimeScale" id=12]
+
+[sub_resource type="AnimationNodeBlendTree" id=13]
+graph_offset = Vector2( -286, 0 )
+nodes/Animation/node = SubResource( 11 )
+nodes/Animation/position = Vector2( -152, 104 )
+nodes/TimeScale/node = SubResource( 12 )
+nodes/TimeScale/position = Vector2( 81, 154 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "death_spear"
@@ -18,22 +28,22 @@ animation = "run_spear"
 [sub_resource type="AnimationNodeStateMachineTransition" id=4]
 advance_condition = "running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=5]
-advance_condition = "attack1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
-switch_mode = 2
-auto_advance = true
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=7]
 advance_condition = "not_running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
 advance_condition = "attack1"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
 [resource]
-states/attack1/node = SubResource( 2 )
-states/attack1/position = Vector2( 549, 136 )
+states/attack1/node = SubResource( 13 )
+states/attack1/position = Vector2( 527, 127 )
 states/death/node = SubResource( 10 )
 states/death/position = Vector2( 99, 208 )
 states/hitstun/node = SubResource( 9 )
@@ -42,6 +52,6 @@ states/idle/node = SubResource( 1 )
 states/idle/position = Vector2( 315, 208 )
 states/run/node = SubResource( 3 )
 states/run/position = Vector2( 315, 75 )
-transitions = [ "idle", "run", SubResource( 4 ), "run", "attack1", SubResource( 5 ), "attack1", "idle", SubResource( 6 ), "run", "idle", SubResource( 7 ), "idle", "attack1", SubResource( 8 ) ]
+transitions = [ "idle", "run", SubResource( 4 ), "run", "idle", SubResource( 7 ), "run", "attack1", SubResource( 14 ), "idle", "attack1", SubResource( 15 ), "attack1", "idle", SubResource( 16 ) ]
 start_node = "idle"
-graph_offset = Vector2( -190, 41 )
+graph_offset = Vector2( -229, -56 )

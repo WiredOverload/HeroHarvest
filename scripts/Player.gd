@@ -1,7 +1,7 @@
 extends "res://scripts/Character.gd"
 class_name Player
 
-export(String, "spear", "bow") var weapon = "spear" setget set_weapon
+export(String, "spear", "bow", "staff") var weapon = "spear" setget set_weapon
 
 export(float) var anim_move_multiplier = 1.0
 
@@ -9,6 +9,7 @@ var locked_input = null
 
 var weaponanims_spear = preload("res://assets/spritesheets/Heroine1/heroine_sm_spear.tres")
 var weaponanims_bow = preload("res://assets/spritesheets/Ranger/ranger_sm_bow.tres")
+var weaponanims_staff = preload("res://assets/spritesheets/Wizard/wizard_sm_staff.tres")
 
 var arrow_scene := preload("res://scenes/entities/Projectile.tscn")
 var arrow_speed: float = 10.0
@@ -32,21 +33,21 @@ func set_weapon(w):
 	weapon = w
 	
 	if is_inside_tree() and $AnimationTree:
-		match weapon:
-			"spear":
-				$AnimationTree.tree_root = weaponanims_spear
-			"bow":
-				$AnimationTree.tree_root = weaponanims_bow
+		update_weapon()
 
-func _ready():
-	set_level(level)
-	EventBus.emit("player_health_update", self)
-	
+func update_weapon():
 	match weapon:
 		"spear":
 			$AnimationTree.tree_root = weaponanims_spear
 		"bow":
 			$AnimationTree.tree_root = weaponanims_bow
+		"staff":
+			$AnimationTree.tree_root = weaponanims_staff
+
+func _ready():
+	set_level(level)
+	EventBus.emit("player_health_update", self)
+	update_weapon()
 
 func _character_process(delta):
 	var input = Vector3()
@@ -127,6 +128,20 @@ func launch_arrow():
 	get_parent().add_child(arrow)
 	arrow.accel.y *= 2
 	arrow.launch(start, target_position, arrow_speed, "enemy")
+
+func _single_fireball(v):
+	var arrow = arrow_scene.instance()
+	get_parent().add_child(arrow)
+	arrow.global_translation = global_translation
+	arrow.accel = Vector3(10 * facing, 0, 0)
+	arrow.velocity = v
+	arrow.damages = "enemy"
+	arrow.die_on_hit = true
+
+func launch_fireball():
+	_single_fireball(Vector3(0, 0, 0))
+	_single_fireball(Vector3(0, 0, 3))
+	_single_fireball(Vector3(0, 0, -3))
 
 
 
