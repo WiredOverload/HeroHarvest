@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/spritesheets/Heroine1/heroine_sm_spear.tres" type="AnimationNodeStateMachine" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://scripts/Player.gd" type="Script" id=5]
 [ext_resource path="res://assets/spritesheets/Ranger/ranger_bow_spriteframes.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://scripts/ItemVacArea.gd" type="Script" id=7]
-[ext_resource path="res://scripts/AnimatedSprite3DSyncTex.gd" type="Script" id=9]
-[ext_resource path="res://materials/sprite_behind.tres" type="Material" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -307,7 +305,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.0416667, 0.416667, 0.75, 0.958333, 1, 1.29167 ),
+"times": PoolRealArray( 0, 0.0416667, 0.416667, 0.75, 0.791667, 1, 1.29167 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -846,10 +844,6 @@ script = ExtResource( 5 )
 weapon = "spear"
 anim_move_multiplier = 1.0
 
-[node name="Sprite" parent="." index="1"]
-script = ExtResource( 9 )
-behind_material = ExtResource( 10 )
-
 [node name="CollisionShape" parent="AttackHitbox" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.773218, -0.0115093, 0 )
 
@@ -913,7 +907,6 @@ script = ExtResource( 7 )
 [node name="CollisionShape" type="CollisionShape" parent="ItemVacArea" index="0"]
 shape = SubResource( 18 )
 
-[connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_Sprite_frame_changed"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="body_entered" from="ItemVacArea" to="ItemVacArea" method="_on_ItemVacArea_body_entered"]
 [connection signal="item_entered" from="ItemVacArea" to="." method="_on_ItemVacArea_item_entered"]
