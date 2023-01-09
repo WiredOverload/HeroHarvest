@@ -1,13 +1,33 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=16 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=20 format=2]
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "bow_attack_regular"
+
+[sub_resource type="AnimationNodeTimeScale" id=29]
+
+[sub_resource type="AnimationNodeBlendTree" id=30]
+graph_offset = Vector2( -381, 36 )
+nodes/Animation/node = SubResource( 28 )
+nodes/Animation/position = Vector2( -198, 155 )
+nodes/TimeScale/node = SubResource( 29 )
+nodes/TimeScale/position = Vector2( 92, 196 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "bow_death"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "bow_dodgeroll"
+
+[sub_resource type="AnimationNodeTimeScale" id=26]
+
+[sub_resource type="AnimationNodeBlendTree" id=27]
+graph_offset = Vector2( -334, 6 )
+nodes/Animation/node = SubResource( 25 )
+nodes/Animation/position = Vector2( -128, 154 )
+nodes/TimeScale/node = SubResource( 26 )
+nodes/TimeScale/position = Vector2( 100, 160 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=22]
 animation = "empty"
@@ -24,46 +44,45 @@ animation = "bow_run"
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
 advance_condition = "running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
-advance_condition = "attack1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
-advance_condition = "attack1"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
-switch_mode = 2
-auto_advance = true
-priority = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
 advance_condition = "not_running"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 advance_condition = "attack1"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+advance_condition = "attack1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 switch_mode = 2
 auto_advance = true
 
 [resource]
-states/attack1/node = SubResource( 5 )
-states/attack1/position = Vector2( 537, 72 )
+states/attack1/node = SubResource( 30 )
+states/attack1/position = Vector2( 548.397, 59.2383 )
 states/death/node = SubResource( 21 )
 states/death/position = Vector2( -73, 145 )
-states/dodgeroll/node = SubResource( 19 )
-states/dodgeroll/position = Vector2( 134, 192 )
+states/dodgeroll/node = SubResource( 27 )
+states/dodgeroll/position = Vector2( 134, 185.238 )
 states/empty/node = SubResource( 22 )
-states/empty/position = Vector2( 537, 162 )
+states/empty/position = Vector2( 548.397, 162 )
 states/hitstun/node = SubResource( 18 )
 states/hitstun/position = Vector2( 134, 111 )
 states/idle/node = SubResource( 10 )
 states/idle/position = Vector2( 329, 162 )
 states/run/node = SubResource( 11 )
 states/run/position = Vector2( 329, 72 )
-transitions = [ "idle", "run", SubResource( 12 ), "run", "attack1", SubResource( 13 ), "idle", "attack1", SubResource( 14 ), "attack1", "idle", SubResource( 15 ), "run", "idle", SubResource( 17 ), "dodgeroll", "idle", SubResource( 20 ), "attack1", "empty", SubResource( 23 ), "empty", "attack1", SubResource( 24 ) ]
+transitions = [ "idle", "run", SubResource( 12 ), "run", "idle", SubResource( 17 ), "dodgeroll", "idle", SubResource( 31 ), "run", "attack1", SubResource( 32 ), "idle", "attack1", SubResource( 33 ), "attack1", "idle", SubResource( 34 ), "attack1", "empty", SubResource( 35 ), "empty", "attack1", SubResource( 36 ) ]
 start_node = "idle"
-graph_offset = Vector2( -266.603, -26 )
+graph_offset = Vector2( -213.603, -33.7618 )

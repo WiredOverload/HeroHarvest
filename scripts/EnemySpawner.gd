@@ -17,7 +17,6 @@ func _on_DisablingArea_body_entered(body):
 	if body.is_in_group("player"):
 		$SpawnTimer.paused = true
 
-
 func _on_DisablingArea_body_exited(body):
 	if body.is_in_group("player"):
 		$SpawnTimer.paused = false
@@ -51,4 +50,9 @@ func _spawn_enemy(i: int):
 	var e = possible_enemies[i].instance()
 	get_parent().add_child(e)
 	e.global_translation = global_translation
+	e.level = current_level
 
+
+
+func _on_SetLevelEventListener_receive(arg):
+	current_level = arg

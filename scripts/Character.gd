@@ -184,3 +184,12 @@ func die():
 	_reset_anim()
 	anim_tree["parameters/playback"].start("death")
 	$DeathTimer.start()
+
+func set_action_speed(spd):
+	if "parameters/attack1/TimeScale/scale" in $AnimationTree:
+		$AnimationTree["parameters/attack1/TimeScale/scale"] = spd
+	if "parameters/attack2/TimeScale/scale" in $AnimationTree:
+		$AnimationTree["parameters/attack2/TimeScale/scale"] = spd
+	if "parameters/dodgeroll/TimeScale/scale" in $AnimationTree:
+		$AnimationTree["parameters/dodgeroll/TimeScale/scale"] = spd
+

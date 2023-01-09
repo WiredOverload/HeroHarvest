@@ -15,6 +15,15 @@ var arrow_speed: float = 10.0
 
 var max_arrow_target_dist = 4.0
 
+var level = 1 setget set_level
+
+func set_level(l):
+	level = l
+	hit_points = level
+	current_hp = hit_points
+	var atkspd = lerp(1, 2, (level - 1) / 9)
+	set_action_speed(atkspd)
+
 func set_weapon(w):
 	weapon = w
 	
@@ -26,8 +35,7 @@ func set_weapon(w):
 				$AnimationTree.tree_root = weaponanims_bow
 
 func _ready():
-	hit_points = 10
-	current_hp = 10
+	set_level(level)
 	EventBus.emit("player_health_update", self)
 	
 	match weapon:

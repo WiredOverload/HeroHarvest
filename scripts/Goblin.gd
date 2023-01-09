@@ -4,6 +4,18 @@ export(Array, String) var possible_drops = []
 export(float) var drop_chance = 0.2
 export(PackedScene) var item_scene = null
 
+var level = 1 setget set_level
+
+var move_speed = 0.75
+
+func set_level(l):
+	level = l
+	hit_points = level
+	current_hp = hit_points
+	var atkspd = lerp(1, 2, (level - 1) / 9.0)
+	set_action_speed(atkspd)
+	move_speed = 0.75 * (1 + (level - 1) / 2.0)
+
 func _get_move_target(player):
 	print("override this")
 
@@ -27,7 +39,7 @@ func _character_process(delta):
 			var input = next_loc - global_translation
 			input.y = 0
 			input = input.normalized()
-			_apply_input(input)
+			_apply_input(input * move_speed)
 		
 		facing = sign(target.global_translation.x - global_translation.x)
 		if facing == 0:
@@ -39,7 +51,6 @@ func die():
 	.die()
 	_drop_item()
 	EventBus.emit("enemy_death", null)
-	print("X")
 
 func _on_DeathTimer_timeout():
 	queue_free()
@@ -56,6 +67,7 @@ func _drop_item():
 	
 	var item = item_scene.instance()
 	get_parent().add_child(item)
-	item.item_def = Item.ItemDef.new(type, 1)
+	item.global_translation = global_translation
+	item.item_def = Item.ItemDef.new(type, level)
 	item.toss()
 

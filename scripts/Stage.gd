@@ -7,6 +7,7 @@ var enemies_killed = 0
 
 func set_level(l: int):
 	level = l
+	EventBus.emit("set_level", level)
 
 
 func _on_EnemyDeathEventListener_receive(arg):
@@ -17,5 +18,6 @@ func _on_EnemyDeathEventListener_receive(arg):
 
 func next_level():
 	enemies_killed = 0
-	level += 1
-	EventBus.emit("next_level", level == 10)
+	EventBus.emit("enemies_killed", enemies_killed)
+	set_level(level + 1)
+	EventBus.emit("next_level", level)
