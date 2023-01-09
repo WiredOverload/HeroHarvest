@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/tamagachi.png" type="Texture" id=2]
@@ -100,6 +100,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=56]
+flags = 1
+atlas = ExtResource( 3 )
+region = Rect2( 0, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 1
+atlas = ExtResource( 3 )
+region = Rect2( 32, 128, 32, 32 )
+
 [sub_resource type="AtlasTexture" id=27]
 flags = 1
 atlas = ExtResource( 3 )
@@ -167,6 +177,11 @@ region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ SubResource( 56 ), SubResource( 57 ) ],
+"loop": true,
+"name": "EXPLORE",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": true,
 "name": "FEED",
@@ -377,7 +392,7 @@ shortcut = SubResource( 55 )
 position = Vector2( 512, 300 )
 scale = Vector2( 2.34375, 2.34375 )
 frames = SubResource( 41 )
-frame = 6
+frame = 4
 playing = true
 
 [node name="MenuSelection" type="AnimatedSprite" parent="UI"]
@@ -385,7 +400,7 @@ visible = false
 position = Vector2( 512, 336 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
-animation = "FEED"
+animation = "EXPLORE"
 
 [node name="BigX" type="AnimatedSprite" parent="UI"]
 position = Vector2( 512, 344 )
@@ -488,6 +503,7 @@ position = Vector2( 512, 376 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "IDLE"
+frame = 1
 playing = true
 script = ExtResource( 5 )
 foodScene = ExtResource( 7 )
