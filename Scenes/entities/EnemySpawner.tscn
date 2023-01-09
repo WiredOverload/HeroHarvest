@@ -25,4 +25,4 @@ event_name = "set_level"
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="body_entered" from="DisablingArea" to="." method="_on_DisablingArea_body_entered"]
 [connection signal="body_exited" from="DisablingArea" to="." method="_on_DisablingArea_body_exited"]
-[connection signal="receive" from="SetLevelEventListener" to="." method="_on_NextLevelEventListener_receive"]
+[connection signal="receive" from="SetLevelEventListener" to="." method="_on_SetLevelEventListener_receive"]

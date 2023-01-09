@@ -50,9 +50,9 @@ possible_enemies = [ ExtResource( 3 ), ExtResource( 2 ) ]
 possible_enemies_reqlevel = [ 0, 0 ]
 possible_enemies_weight = [ 10.0, 10.0 ]
 
-[node name="EnemySpawner16" parent="." instance=ExtResource( 1 )]
+[node name="DragonSpawner" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175362, 0.5, -12.0838 )
-max_spawned_enemies = 8
+max_spawned_enemies = 9
 possible_enemies = [ ExtResource( 8 ) ]
 possible_enemies_reqlevel = [ 10 ]
 possible_enemies_weight = [ 10.0 ]

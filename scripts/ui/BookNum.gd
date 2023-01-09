@@ -15,4 +15,4 @@ func _ready():
 
 
 func _on_Menu_books_changed(new):
-	self.text = new
+	self.text = str(new.size())

@@ -14,7 +14,7 @@ func set_level(l):
 	current_hp = hit_points
 	var atkspd = lerp(1, 2, (level - 1) / 9.0)
 	set_action_speed(atkspd)
-	move_speed = 0.75 * (1 + (level - 1) / 2.0)
+	move_speed = lerp(0.5, 2, (level - 1) / 9.0)
 
 func _get_move_target(player):
 	print("override this")

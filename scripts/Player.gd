@@ -30,6 +30,7 @@ func set_level(l):
 		var atkspd = 1 + managerScene.playerAgility / 6 #lerp(1, 2, (level - 1) / 9)
 		set_action_speed(atkspd)
 		attackPower = managerScene.playerBrawn
+		set_weapon(managerScene.current_weapon)
 	else:
 		hit_points = 3
 		current_hp = hit_points
@@ -160,4 +161,5 @@ func _on_DeathTimer_timeout():
 
 func _on_ItemVacArea_item_entered(item):
 	item.pull_to(self)
+
 

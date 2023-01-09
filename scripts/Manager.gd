@@ -5,6 +5,7 @@ extends Node
 var playerBrawn = 0;
 var playerAgility = 0;
 var playerMind = 0;
+var current_weapon = ["spear", "bow", "staff"][randi() % 3]
 
 var RPGAgility = 0;
 var RPGBrawn = 0;
@@ -14,41 +15,27 @@ signal boots_changed(new)
 signal meats_changed(new)
 signal books_changed(new)
 
-var meats = [] setget meats_set, meats_get
+var meats = [] setget meats_set
 func meats_set(new):
 	meats = new
 	emit_signal("meats_changed", new)
-func meats_get():
-	if(meats):
-		return meats
-	else:
-		return []
 		
-var boots = [] setget boots_set, boots_get
+var boots = [] setget boots_set
 func boots_set(new):
 	boots = new
 	emit_signal("boots_changed", new)
-func boots_get():
-	if(boots):
-		return boots
-	else:
-		return []
 		
-var books = [] setget books_set, books_get
+var books = [] setget books_set
 func books_set(new):
 	books = new
 	emit_signal("books_changed", new)
-func books_get():
-	if(books):
-		return books
-	else:
-		return []
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	current_weapon = ["spear", "bow", "staff"][randi() % 3]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,16 +47,26 @@ func _on_ItemGetEventListener_receive(arg: Item.ItemDef):
 	match(arg.item_type):
 		"food":
 			meats.append(arg.item_level)
+			meats_set(meats)
 		"boot":
 			boots.append(arg.item_level)
+			boots_set(boots)
 		"tome":
 			books.append(arg.item_level)
+			books_set(books)
 
 
 func _on_Menu_harvest():
 	playerAgility += RPGAgility
 	playerBrawn += RPGBrawn
 	playerMind += RPGMind
+	
+	if RPGAgility >= RPGBrawn && RPGAgility >= RPGMind:
+		current_weapon = "bow"
+	elif RPGBrawn >= RPGMind:
+		current_weapon = "staff"
+	else:
+		current_weapon = "spear"
 	
 	RPGAgility = 0
 	RPGBrawn = 0

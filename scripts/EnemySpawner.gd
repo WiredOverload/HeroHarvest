@@ -12,6 +12,8 @@ func _ready():
 
 func _restart_timer():
 	$SpawnTimer.start($SpawnTimer.wait_time + rand_range(0, 1))
+	if possible_enemies.size() == 1:
+		print("dragon restart timer")
 
 func _on_DisablingArea_body_entered(body):
 	if body.is_in_group("player"):
@@ -23,15 +25,23 @@ func _on_DisablingArea_body_exited(body):
 
 
 func _on_SpawnTimer_timeout():
+	if possible_enemies.size() == 1:
+		print("dragon")
 	_restart_timer()
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
 	if num_enemies >= max_spawned_enemies:
+		if possible_enemies.size() == 1:
+			print("dragon too many enemies")
 		return
 	var pis = []
 	for x in range(0, possible_enemies.size()):
+		if possible_enemies.size() == 1:
+			print("dragon req ", possible_enemies_reqlevel[x], " vs ", current_level)
 		if possible_enemies_reqlevel[x] <= current_level:
 			pis.append(x)
 	if pis.size() == 0:
+		if possible_enemies.size() == 1:
+			print("dragon no eligible enemies")
 		print("Oopsie! No enemies to spawn!")
 		return
 	var total_weight = 0
