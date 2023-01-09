@@ -11,4 +11,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.text = String((managerScene.RPGAgility + managerScene.RPGBrawn + managerScene.RPGMind) / 6)
+	if managerScene:
+		self.text = String((managerScene.RPGAgility + managerScene.RPGBrawn + managerScene.RPGMind) / 6)

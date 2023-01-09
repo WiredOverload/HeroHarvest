@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends Control
 
 #512 336 is 0,0
 #472 -> 552
@@ -6,7 +6,7 @@ extends AnimatedSprite
 
 export (PackedScene) var foodScene
 #var managerScene := preload("res://scenes/Manager.tscn")
-onready var managerScene = $"../../Manager"
+onready var managerScene = $"../../../../../../Manager"
 
 enum states {IDLE, AGILITY, BRAWN, MIND, FEED}
 enum foods {MEAT, BOOKS, BOOTS}
@@ -22,16 +22,16 @@ signal level_changed(new)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.transform.origin = Vector2(512, 336)
+	self.rect_position = Vector2(512, 336)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(targets.size() > 0):
-		self.transform.origin += (targets[0].transform.origin - self.transform.origin).normalized() * speed * delta
-		#self.transform.origin.y += target.transform.origin.normalized().y * speed * delta
-		if(abs(self.transform.origin.x - targets[0].transform.origin.x) < .1 && 
-			abs(self.transform.origin.y - targets[0].transform.origin.y) < .1):
+		self.rect_position += (targets[0].transform.origin - self.rect_position).normalized() * speed * delta
+		#self.rect_position.y += target.transform.origin.normalized().y * speed * delta
+		if(abs(self.rect_position.x - targets[0].transform.origin.x) < .1 && 
+			abs(self.rect_position.y - targets[0].transform.origin.y) < .1):
 			match(targets[0].type):
 				foods.MEAT:
 					managerScene.RPGBrawn += targets[0].power
@@ -41,13 +41,13 @@ func _process(delta):
 					managerScene.RPGMind += targets[0].power
 			targets[0].queue_free()
 			state = states.IDLE
-			self.animation = "IDLE"
+			$GuySprite.animation = "IDLE"
 			targets.pop_front()
 	pass
 
 func feed(var food):
 	state = states.FEED
-	self.animation = states.keys()[state]
+	$GuySprite.animation = states.keys()[state]
 	var target = foodScene.instance()
 	get_parent().add_child(target)
 	target.transform.origin.x = rand_range(472, 552)
@@ -68,14 +68,14 @@ func feed(var food):
 
 func train(var activity):
 	state = activity
-	self.animation = states.keys()[state]
+	$GuySprite.animation = states.keys()[state]
 	$TrainTimer.start()
 
 
 func _on_RPGGuy_visibility_changed():
 	if(state != states.FEED):
-		self.transform.origin.x = rand_range(472, 552)
-		self.transform.origin.y = rand_range(312, 376)
+		self.rect_position.x = rand_range(472, 552)
+		self.rect_position.y = rand_range(312, 376)
 
 
 func _on_TrainTimer_timeout():
@@ -88,4 +88,4 @@ func _on_TrainTimer_timeout():
 		states.MIND:
 			managerScene.RPGMind += 1
 	state = states.IDLE
-	self.animation = states.keys()[state]
+	$GuySprite.animation = states.keys()[state]

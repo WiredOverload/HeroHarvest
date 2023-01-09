@@ -21,7 +21,7 @@ var menuSelection = 0;
 var isVisible = false
 
 onready var animation = $MenuSelection;
-onready var RPGGuy = $"../RPGGuy";
+onready var RPGGuy = $Tama/RPGGuy;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
