@@ -165,9 +165,11 @@ func apply_hit(source):
 	if source:
 		impulse += (global_translation - source.global_translation).normalized() * hit_nudge_impulse
 	if current_hp > 0:
-		current_hp -= 1
 		if is_in_group("player"):
+			current_hp -= 1
 			EventBus.emit("player_health_update", self)
+		else:
+			current_hp -= 1 + floor(source.attackPower / 2)
 		if current_hp == 0:
 			die()
 
