@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Herogatchi.ogg-f598d56fdb1a84c3eef0c84919e5fb50.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Herogatchi.ogg"
+dest_files=[ "res://.import/Herogatchi.ogg-f598d56fdb1a84c3eef0c84919e5fb50.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -52,5 +52,10 @@ script = ExtResource( 3 )
 script = ExtResource( 1 )
 event_name = "player_death"
 
+[node name="EventListener2" type="Node" parent="DeathOverlay"]
+script = ExtResource( 1 )
+event_name = "stage_unload"
+
 [connection signal="receive" from="HealthBar/EventListener" to="HealthBar" method="_on_EventListener_receive"]
 [connection signal="receive" from="DeathOverlay/EventListener" to="DeathOverlay" method="_on_EventListener_receive"]
+[connection signal="receive" from="DeathOverlay/EventListener2" to="DeathOverlay" method="_on_EventListener2_receive"]

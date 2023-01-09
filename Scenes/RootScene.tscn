@@ -18,7 +18,7 @@
 battle_scene_node = NodePath("../BattleScene")
 
 [node name="AnimatedSprite" parent="Menu/UI" index="5"]
-frame = 1
+frame = 9
 
 [node name="Warning" parent="." instance=ExtResource( 5 )]
 
