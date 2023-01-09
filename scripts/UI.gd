@@ -71,6 +71,9 @@ func _on_CenterButton_pressed():
 		menus.FEED:
 			if(menuSelection > 2):
 				menuSelection = 0
+		menus.EXPLORE:
+			if(menuSelection > 1):
+				menuSelection = 0
 		menus.HARVEST:
 			if(menuSelection > 1):
 				menuSelection = 0
@@ -131,7 +134,10 @@ func _on_RightButton_pressed():
 			if(menuSelection == 1): #vs end boss
 				get_tree().change_scene("res://Scenes/BattleScene.tscn");
 		menus.EXPLORE:
-			emit_signal("request_explore", "forest")
+			if(menuSelection == 0): #vs RPG gal
+				emit_signal("request_explore", "forest")
+			if(menuSelection == 1): #vs end boss
+				emit_signal("request_explore", "swamp")
 	
 	animation.animation = menus.keys()[menu];
 
