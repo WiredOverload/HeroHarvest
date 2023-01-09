@@ -1,5 +1,6 @@
 extends Spatial
 
+export(int) var max_spawned_enemies = 10
 export(Array, PackedScene) var possible_enemies = []
 export(Array, int) var possible_enemies_reqlevel = []
 export(Array, float) var possible_enemies_weight = []
@@ -21,6 +22,9 @@ func _on_DisablingArea_body_exited(body):
 
 
 func _on_SpawnTimer_timeout():
+	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
+	if num_enemies >= max_spawned_enemies:
+		return
 	var pis = []
 	for x in range(0, possible_enemies.size()):
 		if possible_enemies_reqlevel[x] <= current_level:
@@ -39,7 +43,9 @@ func _on_SpawnTimer_timeout():
 			return
 	_spawn_enemy(pis[0])
 
+
 func _spawn_enemy(i: int):
 	var e = possible_enemies[i].instance()
 	get_parent().add_child(e)
 	e.global_translation = global_translation
+

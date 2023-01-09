@@ -1,5 +1,9 @@
 extends "res://scripts/Character.gd"
 
+export(Array, String) var possible_drops = []
+export(float) var drop_chance = 0.2
+export(PackedScene) var item_scene = null
+
 func _get_move_target(player):
 	print("override this")
 
@@ -33,4 +37,21 @@ func _character_process(delta):
 
 
 func _on_DeathTimer_timeout():
+	_drop_item()
 	queue_free()
+
+
+func _drop_item():
+	if possible_drops.size() == 0:
+		return
+	var roll = rand_range(0, 1)
+	if roll > drop_chance:
+		return
+	
+	var type = possible_drops[randi() % possible_drops.size()]
+	
+	var item = item_scene.instance()
+	get_parent().add_child(item)
+	item.item_def = Item.ItemDef.new(type, 1)
+	item.toss()
+

@@ -44,6 +44,7 @@ weapon = "bow"
 
 [node name="EnemySpawner" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0764, 0.5, -3.48925 )
+max_spawned_enemies = 8
 possible_enemies = [ ExtResource( 4 ), ExtResource( 5 ) ]
 possible_enemies_reqlevel = [ 0, 0 ]
 possible_enemies_weight = [ 10.0, 10.0 ]
@@ -53,6 +54,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.392706, 0, 0.0532355 )
 
 [node name="EnemySpawner2" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9435, 0.5, -3.19124 )
+max_spawned_enemies = 8
 possible_enemies = [ ExtResource( 4 ), ExtResource( 5 ) ]
 possible_enemies_reqlevel = [ 0, 0 ]
 possible_enemies_weight = [ 10.0, 10.0 ]
