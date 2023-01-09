@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/tamagachi.png" type="Texture" id=2]
 [ext_resource path="res://assets/Menu/MainMenu.png" type="Texture" id=3]
+[ext_resource path="res://assets/Menu/tamaChar1.png" type="Texture" id=4]
+[ext_resource path="res://scripts/RPGGuy.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 1
@@ -77,6 +79,39 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=18]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "FEED",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 1.0
+} ]
+
 [node name="Menu" type="Node2D"]
 
 [node name="UI" type="Control" parent="."]
@@ -124,10 +159,19 @@ size_flags_vertical = 0
 text = "Enter"
 
 [node name="MenuSelection" type="AnimatedSprite" parent="UI"]
+visible = false
 position = Vector2( 512, 336 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
 animation = "MAIN"
+
+[node name="RPGGuy" type="AnimatedSprite" parent="."]
+position = Vector2( 512, 376 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 20 )
+animation = "IDLE"
+playing = true
+script = ExtResource( 5 )
 
 [connection signal="pressed" from="UI/LeftButton" to="UI" method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="UI/CenterButton" to="UI" method="_on_CenterButton_pressed"]
