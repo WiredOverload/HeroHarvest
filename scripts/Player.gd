@@ -24,11 +24,17 @@ var attackPower = 0
 
 func set_level(l):
 	level = l
-	hit_points = 3 + managerScene.RPGMind
-	current_hp = hit_points
-	var atkspd = 1 + managerScene.RPGAgility / 6 #lerp(1, 2, (level - 1) / 9)
-	set_action_speed(atkspd)
-	attackPower = managerScene.RPGBrawn
+	if managerScene:
+		hit_points = 3 + managerScene.RPGMind
+		current_hp = hit_points
+		var atkspd = 1 + managerScene.RPGAgility / 6 #lerp(1, 2, (level - 1) / 9)
+		set_action_speed(atkspd)
+		attackPower = managerScene.RPGBrawn
+	else:
+		hit_points = 3
+		current_hp = hit_points
+		set_action_speed(1)
+		attackPower = 1
 
 func set_weapon(w):
 	weapon = w
@@ -129,6 +135,7 @@ func launch_arrow():
 	get_parent().add_child(arrow)
 	arrow.accel.y *= 2
 	arrow.launch(start, target_position, arrow_speed, "enemy")
+	arrow.attackPower = attackPower
 
 func _single_fireball(v):
 	var arrow = fb_scene.instance()
@@ -138,6 +145,7 @@ func _single_fireball(v):
 	arrow.velocity = v
 	arrow.damages = "enemy"
 	arrow.die_on_hit = true
+	arrow.attackPower = attackPower
 
 func launch_fireball():
 	_single_fireball(Vector3(0, 0, 0))

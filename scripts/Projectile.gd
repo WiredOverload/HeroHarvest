@@ -7,6 +7,8 @@ var damages = "player"
 var disable_hit = false
 var die_on_hit = true
 
+var attackPower = 1
+
 func launch(from: Vector3, to: Vector3, arrow_speed: float, dmg: String):
 	var start = from * Vector3(1, 0, 1)
 	var dart = to * Vector3(1, 0, 1)
@@ -33,7 +35,7 @@ func _physics_process(delta):
 func _on_Projectile_body_entered(body: PhysicsBody):
 	if body and body.is_in_group("character"):
 		if not disable_hit and body.is_in_group(damages):
-			body.apply_hit(null)
+			body.apply_hit(self)
 			disable_hit = true
 	else:
 		disable_hit = true

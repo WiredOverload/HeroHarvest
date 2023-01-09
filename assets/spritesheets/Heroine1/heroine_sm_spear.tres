@@ -11,7 +11,7 @@ nodes/Animation/node = SubResource( 22 )
 nodes/Animation/position = Vector2( -220, 120 )
 nodes/TimeScale/node = SubResource( 23 )
 nodes/TimeScale/position = Vector2( 40, 140 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=29]
 animation = "attack_slash_spear"
@@ -24,7 +24,7 @@ nodes/Animation/node = SubResource( 29 )
 nodes/Animation/position = Vector2( -186, 143 )
 nodes/TimeScale/node = SubResource( 30 )
 nodes/TimeScale/position = Vector2( 100, 140 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "death_spear"
@@ -41,7 +41,7 @@ nodes/Animation/position = Vector2( -400, 177 )
 nodes/TimeScale/node = SubResource( 35 )
 nodes/TimeScale/position = Vector2( -133, 167 )
 nodes/output/position = Vector2( 100, 180 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=18]
 animation = "hitstun_spear"
