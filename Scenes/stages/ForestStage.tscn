@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/entities/EnemySpawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/characters/SpearGoblin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/characters/BowGoblin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://mesh_library/MeshLibrary.tres" type="MeshLibrary" id=4]
 [ext_resource path="res://scripts/Stage.gd" type="Script" id=5]
+[ext_resource path="res://scenes/characters/Dragon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/EventBus/EventListener.gd" type="Script" id=7]
 
 [sub_resource type="NavigationMesh" id=11]
@@ -40,6 +41,34 @@ max_spawned_enemies = 8
 possible_enemies = [ ExtResource( 2 ), ExtResource( 3 ) ]
 possible_enemies_reqlevel = [ 0, 0 ]
 possible_enemies_weight = [ 10.0, 10.0 ]
+
+[node name="EnemySpawner4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2215, 0.5, -8.25271 )
+max_spawned_enemies = 8
+possible_enemies = [ ExtResource( 2 ), ExtResource( 3 ) ]
+possible_enemies_reqlevel = [ 0, 0 ]
+possible_enemies_weight = [ 10.0, 10.0 ]
+
+[node name="EnemySpawner5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23923, 0.5, 3.03497 )
+max_spawned_enemies = 8
+possible_enemies = [ ExtResource( 2 ), ExtResource( 3 ) ]
+possible_enemies_reqlevel = [ 0, 0 ]
+possible_enemies_weight = [ 10.0, 10.0 ]
+
+[node name="EnemySpawner6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3976, 0.5, -8.35435 )
+max_spawned_enemies = 8
+possible_enemies = [ ExtResource( 2 ), ExtResource( 3 ) ]
+possible_enemies_reqlevel = [ 0, 0 ]
+possible_enemies_weight = [ 10.0, 10.0 ]
+
+[node name="EnemySpawner3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0730493, 0.5, -9.14961 )
+max_spawned_enemies = 8
+possible_enemies = [ ExtResource( 6 ) ]
+possible_enemies_reqlevel = [ 10 ]
+possible_enemies_weight = [ 10.0 ]
 
 [node name="EnemySpawner2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9435, 0.5, -3.19124 )
