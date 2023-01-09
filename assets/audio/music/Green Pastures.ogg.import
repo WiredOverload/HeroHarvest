@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Green Pastures.ogg-0add8e3f072e72c7c3bac12e635e75ba.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Green Pastures.ogg"
+dest_files=[ "res://.import/Green Pastures.ogg-0add8e3f072e72c7c3bac12e635e75ba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
