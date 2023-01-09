@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/tamagachi.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scripts/ui/MeatNum.gd" type="Script" id=14]
 [ext_resource path="res://scripts/ui/Level.gd" type="Script" id=15]
 [ext_resource path="res://assets/harvest.png" type="Texture" id=16]
+[ext_resource path="res://scripts/EventBus/EventListener.gd" type="Script" id=17]
 
 [sub_resource type="InputEventAction" id=50]
 action = "tama_left"
@@ -411,8 +412,89 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="Menu" type="Node2D"]
+[sub_resource type="AtlasTexture" id=58]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 352, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 1
+atlas = ExtResource( 16 )
+region = Rect2( 384, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=71]
+animations = [ {
+"frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Menu" type="Control"]
 script = ExtResource( 6 )
+
+[node name="EventListener" type="Node" parent="."]
+script = ExtResource( 17 )
+event_name = "player_death"
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
@@ -466,7 +548,7 @@ shortcut = SubResource( 55 )
 position = Vector2( 512, 300 )
 scale = Vector2( 2.34375, 2.34375 )
 frames = SubResource( 41 )
-frame = 9
+frame = 2
 playing = true
 
 [node name="MenuSelection" type="AnimatedSprite" parent="UI"]
@@ -583,7 +665,6 @@ position = Vector2( 512, 376 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "IDLE"
-frame = 1
 playing = true
 script = ExtResource( 5 )
 foodScene = ExtResource( 7 )
@@ -595,6 +676,9 @@ wait_time = 5.0
 [connection signal="boots_changed" from="." to="UI/TopUI/BootNum" method="_on_Menu_boots_changed"]
 [connection signal="meats_changed" from="." to="UI/TopUI/MeatNum" method="_on_Menu_meats_changed"]
 [connection signal="harvest" from="UI" to="." method="_on_UI_harvest"]
+[connection signal="receive" from="EventListener" to="." method="_on_EventListener_receive"]
+[connection signal="tree_exiting" from="EventListener" to="." method="_on_EventListener_tree_exiting"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="request_explore" from="UI" to="." method="_on_UI_request_explore"]
 [connection signal="pressed" from="UI/LeftButton" to="UI" method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="UI/CenterButton" to="UI" method="_on_CenterButton_pressed"]

@@ -25,11 +25,11 @@ var attackPower = 0
 func set_level(l):
 	level = l
 	if managerScene:
-		hit_points = 3 + managerScene.RPGMind
+		hit_points = 3 + managerScene.playerMind
 		current_hp = hit_points
-		var atkspd = 1 + managerScene.RPGAgility / 6 #lerp(1, 2, (level - 1) / 9)
+		var atkspd = 1 + managerScene.playerAgility / 6 #lerp(1, 2, (level - 1) / 9)
 		set_action_speed(atkspd)
-		attackPower = managerScene.RPGBrawn
+		attackPower = managerScene.playerBrawn
 	else:
 		hit_points = 3
 		current_hp = hit_points
