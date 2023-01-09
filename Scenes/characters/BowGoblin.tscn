@@ -271,6 +271,8 @@ tracks/2/keys = {
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="BowGoblin" instance=ExtResource( 2 )]
+collision_layer = 1
+collision_mask = 1
 script = ExtResource( 4 )
 keep_distance = 5.0
 aim_area_radius = 1.0
@@ -279,6 +281,10 @@ aim_area_radius = 1.0
 frames = ExtResource( 1 )
 animation = "death"
 frame = 18
+
+[node name="AttackHitbox" parent="." index="2"]
+collision_layer = 1
+collision_mask = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 1 )

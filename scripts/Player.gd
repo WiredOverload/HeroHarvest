@@ -119,3 +119,8 @@ func launch_arrow():
 
 func _on_DeathTimer_timeout():
 	EventBus.emit("player_death", self)
+
+
+func _on_ItemVacArea_item_entered(item):
+	item.pull_to(self)
+
