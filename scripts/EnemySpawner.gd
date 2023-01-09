@@ -8,8 +8,10 @@ export(Array, float) var possible_enemies_weight = []
 var current_level = 1
 
 func _ready():
-	$SpawnTimer.start()
+	_restart_timer()
 
+func _restart_timer():
+	$SpawnTimer.start($SpawnTimer.wait_time + rand_range(0, 1))
 
 func _on_DisablingArea_body_entered(body):
 	if body.is_in_group("player"):
@@ -22,6 +24,7 @@ func _on_DisablingArea_body_exited(body):
 
 
 func _on_SpawnTimer_timeout():
+	_restart_timer()
 	var num_enemies = get_tree().get_nodes_in_group("enemy").size()
 	if num_enemies >= max_spawned_enemies:
 		return
