@@ -200,31 +200,31 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="LeftButton" type="Button" parent="UI"]
-margin_left = 439.0
-margin_top = 458.0
-margin_right = 475.0
-margin_bottom = 478.0
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 432.0
+margin_top = 448.0
+margin_right = 480.0
+margin_bottom = 496.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Cancel"
 
 [node name="CenterButton" type="Button" parent="UI"]
-margin_left = 485.0
-margin_top = 486.0
-margin_right = 539.0
-margin_bottom = 506.0
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 488.0
+margin_top = 472.0
+margin_right = 536.0
+margin_bottom = 520.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Down"
 
 [node name="RightButton" type="Button" parent="UI"]
-margin_left = 548.0
-margin_top = 458.0
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 544.0
+margin_top = 448.0
 margin_right = 592.0
-margin_bottom = 478.0
+margin_bottom = 496.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Enter"
 
 [node name="MenuSelection" type="AnimatedSprite" parent="UI"]
 visible = false
