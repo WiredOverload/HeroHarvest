@@ -11,6 +11,8 @@ Start final boss battle
 Play idle animation until button is pressed
 Display Care, Harvest, or explore options
 """
+#var managerScene := preload("res://scenes/Manager.tscn")
+onready var managerScene = $"../../Manager"
 
 enum menus {MAIN, TRAIN, FEED, EXPLORE, HARVEST}
 
@@ -102,11 +104,23 @@ func _on_RightButton_pressed():
 			hideMenu()
 		menus.FEED:
 			if(menuSelection == 0):
-				RPGGuy.feed(RPGGuy.foods.MEAT)
+				if(managerScene.meats.size() > 0):
+					RPGGuy.feed(RPGGuy.foods.MEAT)
+				else:
+					$BigX.frame = 0
+					$BigX.play()
 			if(menuSelection == 1):
-				RPGGuy.feed(RPGGuy.foods.BOOKS)
+				if(managerScene.books.size() > 0):
+					RPGGuy.feed(RPGGuy.foods.BOOKS)
+				else:
+					$BigX.frame = 0
+					$BigX.play()
 			if(menuSelection == 2):
-				RPGGuy.feed(RPGGuy.foods.BOOTS)
+				if(managerScene.boots.size() > 0):
+					RPGGuy.feed(RPGGuy.foods.BOOTS)
+				else:
+					$BigX.frame = 0
+					$BigX.play()
 			hideMenu()
 		menus.HARVEST:
 			if(menuSelection == 0): #vs RPG gal

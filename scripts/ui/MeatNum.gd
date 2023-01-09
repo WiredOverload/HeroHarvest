@@ -1,8 +1,8 @@
-extends Node2D
+extends RichTextLabel
 
-enum types {MEAT, BOOKS, BOOTS}
-var type = types.MEAT
-var power
+
+#var managerScene := preload("res://scenes/Manager.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,4 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	self.text = managerScene.boots.size()
+
+
+func _on_Menu_meats_changed(new):
+	self.text = new
