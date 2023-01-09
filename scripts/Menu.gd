@@ -6,6 +6,7 @@ onready var battle_scene = get_node(battle_scene_node)
 signal boots_changed(new)
 signal meats_changed(new)
 signal books_changed(new)
+signal harvest()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +39,10 @@ func _on_UI_request_explore(type):
 	visible = false
 
 
+func _on_UI_harvest():
+	emit_signal("harvest")
+	pass # Replace with function body.
+
 func _on_EventListener_receive(arg):
 	$DeathTimer.start()
 
@@ -46,9 +51,6 @@ func _on_DeathTimer_timeout():
 	battle_scene.destroy_stage()
 	visible = true
 	$UI.menu
-
-
-
 
 func _on_EventListener_tree_exiting():
 	pass

@@ -13,6 +13,7 @@ Display Care, Harvest, or explore options
 """
 
 signal request_explore(type)
+signal harvest()
 
 #var managerScene := preload("res://scenes/Manager.tscn")
 onready var managerScene = $"../../Manager"
@@ -98,7 +99,13 @@ func _on_RightButton_pressed():
 			if(menuSelection == 2):
 				menu = menus.EXPLORE;
 			if(menuSelection == 3):
-				menu = menus.HARVEST;
+				emit_signal("harvest")
+				hideMenu()
+				RPGGuy.hide()
+				$Harvest.show()
+				$Harvest.play()
+				pass
+				#menu = menus.HARVEST;
 			menuSelection = 0;
 		menus.TRAIN:
 			if(menuSelection == 0):
@@ -128,11 +135,11 @@ func _on_RightButton_pressed():
 					$BigX.frame = 0
 					$BigX.play()
 			hideMenu()
-		menus.HARVEST:
-			if(menuSelection == 0): #vs RPG gal
-				get_tree().change_scene("res://Scenes/BattleScene.tscn");
-			if(menuSelection == 1): #vs end boss
-				get_tree().change_scene("res://Scenes/BattleScene.tscn");
+#		menus.HARVEST:
+#			if(menuSelection == 0): #vs RPG gal
+#				get_tree().change_scene("res://Scenes/BattleScene.tscn");
+#			if(menuSelection == 1): #vs end boss
+#				get_tree().change_scene("res://Scenes/BattleScene.tscn");
 		menus.EXPLORE:
 			if(menuSelection == 0): #vs RPG gal
 				emit_signal("request_explore", "forest")
@@ -158,3 +165,8 @@ func hideMenu():
 	animation.hide()
 	for child in get_tree().get_nodes_in_group("food"):
 		child.show()
+
+
+func _on_Harvest_animation_finished():
+	$Harvest.hide()
+	RPGGuy.show()

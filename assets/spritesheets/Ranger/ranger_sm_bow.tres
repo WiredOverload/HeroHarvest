@@ -11,7 +11,7 @@ nodes/Animation/node = SubResource( 28 )
 nodes/Animation/position = Vector2( -198, 155 )
 nodes/TimeScale/node = SubResource( 29 )
 nodes/TimeScale/position = Vector2( 92, 196 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "bow_death"
@@ -27,7 +27,7 @@ nodes/Animation/node = SubResource( 25 )
 nodes/Animation/position = Vector2( -128, 154 )
 nodes/TimeScale/node = SubResource( 26 )
 nodes/TimeScale/position = Vector2( 100, 160 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=22]
 animation = "empty"

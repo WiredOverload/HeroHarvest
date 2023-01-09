@@ -64,3 +64,13 @@ func _on_ItemGetEventListener_receive(arg: Item.ItemDef):
 			boots.append(arg.item_level)
 		"tome":
 			books.append(arg.item_level)
+
+
+func _on_Menu_harvest():
+	playerAgility += RPGAgility
+	playerBrawn += RPGBrawn
+	playerMind += RPGMind
+	
+	RPGAgility = 0
+	RPGBrawn = 0
+	RPGMind = 0
