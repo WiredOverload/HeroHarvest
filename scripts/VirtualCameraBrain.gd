@@ -79,14 +79,14 @@ static func _calc_lerp_t(smoothing, delta):
 	return 1.0 - pow(smoothing, delta)
 
 func add_vcam(vcam):
+	if vcams.find(vcam) != -1:
+		return
 	vcams.append(vcam)
 	update_vcam(null)
 
 func remove_vcam(vcam):
 	var i = vcams.find(vcam)
-	print("removing vcam ", vcam)
 	if i == -1:
-		print("could not find cam ", vcam)
 		return
 	vcams.remove(i)
 
