@@ -11,6 +11,9 @@ Start final boss battle
 Play idle animation until button is pressed
 Display Care, Harvest, or explore options
 """
+
+signal request_explore(type)
+
 #var managerScene := preload("res://scenes/Manager.tscn")
 onready var managerScene = $"../../Manager"
 
@@ -128,7 +131,7 @@ func _on_RightButton_pressed():
 			if(menuSelection == 1): #vs end boss
 				get_tree().change_scene("res://Scenes/BattleScene.tscn");
 		menus.EXPLORE:
-			get_tree().change_scene("res://Scenes/BattleScene.tscn");
+			emit_signal("request_explore", "forest")
 	
 	animation.animation = menus.keys()[menu];
 

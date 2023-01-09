@@ -275,8 +275,6 @@ tracks/2/keys = {
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="SpearGoblin" instance=ExtResource( 1 )]
-collision_layer = 1
-collision_mask = 1
 script = ExtResource( 4 )
 
 [node name="AttackHitbox" parent="." index="2"]

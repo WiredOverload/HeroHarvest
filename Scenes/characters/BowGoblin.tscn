@@ -271,8 +271,6 @@ tracks/2/keys = {
 [sub_resource type="AnimationNodeStateMachinePlayback" id=6]
 
 [node name="BowGoblin" instance=ExtResource( 2 )]
-collision_layer = 1
-collision_mask = 1
 script = ExtResource( 4 )
 keep_distance = 5.0
 aim_area_radius = 1.0

@@ -15,6 +15,7 @@ func unsubscribe(event_name: String, listener, listener_func: String):
 			break
 
 func emit(event_name: String, arg):
+	print("EVENT: ", event_name, " ", arg)
 	if subscribers.has(event_name):
 		for i in range(0, subscribers[event_name].size()):
 			var l = subscribers[event_name][i]

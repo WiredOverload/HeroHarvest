@@ -35,9 +35,8 @@ func _on_Projectile_body_entered(body: PhysicsBody):
 			body.apply_hit(null)
 			disable_hit = true
 	else:
-		print("stuck")
 		disable_hit = true
-		monitoring = false
+		set_deferred("monitoring", false)
 		velocity = Vector3()
 		accel = Vector3()
 		set_physics_process(false)

@@ -1,6 +1,7 @@
 extends Node2D
 
-
+export(NodePath) var battle_scene_node: NodePath = ""
+onready var battle_scene = get_node(battle_scene_node)
 
 signal boots_changed(new)
 signal meats_changed(new)
@@ -26,3 +27,12 @@ func _on_Manager_boots_changed(new):
 
 func _on_Manager_meats_changed(new):
 	emit_signal("meats_changed", new)
+
+func explore(type: String):
+	battle_scene.create_stage(type, 1)
+
+
+
+func _on_UI_request_explore(type):
+	explore(type)
+	visible = false

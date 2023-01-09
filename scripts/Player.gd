@@ -1,4 +1,5 @@
 extends "res://scripts/Character.gd"
+class_name Player
 
 export(String, "spear", "bow") var weapon = "spear" setget set_weapon
 
@@ -17,7 +18,7 @@ var max_arrow_target_dist = 4.0
 func set_weapon(w):
 	weapon = w
 	
-	if $AnimationTree:
+	if is_inside_tree() and $AnimationTree:
 		match weapon:
 			"spear":
 				$AnimationTree.tree_root = weaponanims_spear
@@ -25,8 +26,8 @@ func set_weapon(w):
 				$AnimationTree.tree_root = weaponanims_bow
 
 func _ready():
-	hit_points = 3
-	current_hp = 3
+	hit_points = 10
+	current_hp = 10
 	EventBus.emit("player_health_update", self)
 	
 	match weapon:

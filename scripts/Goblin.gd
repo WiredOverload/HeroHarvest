@@ -35,9 +35,13 @@ func _character_process(delta):
 		
 		_perform_attack(target, target_position, at_target)
 
+func die():
+	.die()
+	_drop_item()
+	EventBus.emit("enemy_death", null)
+	print("X")
 
 func _on_DeathTimer_timeout():
-	_drop_item()
 	queue_free()
 
 
