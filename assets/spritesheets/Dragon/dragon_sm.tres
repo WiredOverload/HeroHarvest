@@ -1,0 +1,45 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "death"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "firebreathe"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "stomp"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+advance_condition = "running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+advance_condition = "not_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+switch_mode = 2
+auto_advance = true
+
+[resource]
+states/death/node = SubResource( 1 )
+states/death/position = Vector2( 147, 148 )
+states/firebreathe/node = SubResource( 2 )
+states/firebreathe/position = Vector2( 551, 157 )
+states/idle/node = SubResource( 3 )
+states/idle/position = Vector2( 333, 162 )
+states/stomp/node = SubResource( 4 )
+states/stomp/position = Vector2( 551, 66 )
+states/walk/node = SubResource( 5 )
+states/walk/position = Vector2( 333, 54 )
+transitions = [ "idle", "walk", SubResource( 6 ), "walk", "idle", SubResource( 7 ), "stomp", "idle", SubResource( 8 ), "firebreathe", "idle", SubResource( 9 ) ]
+start_node = "idle"
+graph_offset = Vector2( -134, 15 )

@@ -11,7 +11,7 @@ nodes/Animation/node = SubResource( 8 )
 nodes/Animation/position = Vector2( -172, 112 )
 nodes/TimeScale/node = SubResource( 9 )
 nodes/TimeScale/position = Vector2( 80, 160 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "death_bow"

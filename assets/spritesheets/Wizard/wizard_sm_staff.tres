@@ -11,7 +11,7 @@ nodes/Animation/node = SubResource( 13 )
 nodes/Animation/position = Vector2( -303, 94 )
 nodes/TimeScale/node = SubResource( 14 )
 nodes/TimeScale/position = Vector2( -20, 141 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=2]
 animation = "staff_death"
@@ -27,7 +27,7 @@ nodes/Animation/node = SubResource( 15 )
 nodes/Animation/position = Vector2( -339, 97 )
 nodes/TimeScale/node = SubResource( 16 )
 nodes/TimeScale/position = Vector2( -4, 144 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "staff_hitstun"

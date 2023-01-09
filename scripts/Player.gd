@@ -12,6 +12,7 @@ var weaponanims_bow = preload("res://assets/spritesheets/Ranger/ranger_sm_bow.tr
 var weaponanims_staff = preload("res://assets/spritesheets/Wizard/wizard_sm_staff.tres")
 
 var arrow_scene := preload("res://scenes/entities/Projectile.tscn")
+var fb_scene := preload("res://scenes/entities/Fireball.tscn")
 var arrow_speed: float = 10.0
 
 var max_arrow_target_dist = 4.0
@@ -126,7 +127,7 @@ func launch_arrow():
 	arrow.launch(start, target_position, arrow_speed, "enemy")
 
 func _single_fireball(v):
-	var arrow = arrow_scene.instance()
+	var arrow = fb_scene.instance()
 	get_parent().add_child(arrow)
 	arrow.global_translation = global_translation
 	arrow.accel = Vector3(10 * facing, 0, 0)
