@@ -163,3 +163,5 @@ texture = ExtResource( 6 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[connection signal="receive" from="EnemyDeathEventListener" to="." method="_on_EnemyDeathEventListener_receive"]

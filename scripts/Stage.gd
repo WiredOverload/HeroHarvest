@@ -1,7 +1,7 @@
 extends Navigation
 
 export(int) var level: int = 1 setget set_level
-export(int) var enemies_per_level = 2
+export(int) var enemies_per_level = 5
 
 var enemies_killed = 0
 
