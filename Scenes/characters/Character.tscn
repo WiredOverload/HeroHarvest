@@ -21,6 +21,8 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.005
+transparent = false
+alpha_cut = 1
 frames = ExtResource( 3 )
 animation = "idle"
 
