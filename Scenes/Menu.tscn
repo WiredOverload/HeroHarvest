@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/tamagachi.png" type="Texture" id=2]
@@ -79,6 +79,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=21]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 16, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 16, 48, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=18]
 flags = 1
 atlas = ExtResource( 4 )
@@ -99,8 +119,28 @@ flags = 1
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=25]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 1
+atlas = ExtResource( 4 )
+region = Rect2( 16, 64, 16, 16 )
+
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "AGILITY",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "BRAWN",
+"speed": 3.0
+}, {
 "frames": [ SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "FEED",
@@ -110,6 +150,11 @@ animations = [ {
 "loop": true,
 "name": "IDLE",
 "speed": 1.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
+"name": "MIND",
+"speed": 3.0
 } ]
 
 [node name="Menu" type="Node2D"]
@@ -176,3 +221,4 @@ script = ExtResource( 5 )
 [connection signal="pressed" from="UI/LeftButton" to="UI" method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="UI/CenterButton" to="UI" method="_on_CenterButton_pressed"]
 [connection signal="pressed" from="UI/RightButton" to="UI" method="_on_RightButton_pressed"]
+[connection signal="visibility_changed" from="RPGGuy" to="RPGGuy" method="_on_RPGGuy_visibility_changed"]

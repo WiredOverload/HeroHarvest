@@ -36,6 +36,13 @@ func _on_LeftButton_pressed():
 		firstButtonPressed()
 		return
 	
+	if(isVisible && menu == menus.MAIN):
+		menuSelection = 0;
+		isVisible = false
+		RPGGuy.show()
+		animation.hide()
+		return
+	
 	menu = menus.MAIN;
 	menuSelection = 0;
 	

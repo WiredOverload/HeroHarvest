@@ -7,6 +7,7 @@ extends AnimatedSprite
 enum states {IDLE, AGILITY, BRAWN, MIND, FEED}
 var state = states.IDLE
 
+var destination = Vector2(512, 336)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,3 +25,8 @@ func feed():
 func train(var activity):
 	state = activity
 	self.animation = states.keys()[state]
+
+
+func _on_RPGGuy_visibility_changed():
+	self.transform.origin.x = rand_range(472, 552)
+	self.transform.origin.y = rand_range(312, 376)
