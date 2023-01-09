@@ -4,23 +4,42 @@ extends AnimatedSprite
 #472 -> 552
 #312 -> 376
 
+export (PackedScene) var foodScene
+
 enum states {IDLE, AGILITY, BRAWN, MIND, FEED}
+enum foods {MEAT, BOOKS, BOOTS}
 var state = states.IDLE
 
-var destination = Vector2(512, 336)
+var target = null
+var speed = 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.transform.origin = Vector2(512, 336)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if(target != null):
+		self.transform.origin += (target.transform.origin - self.transform.origin).normalized() * speed * delta
+		#self.transform.origin.y += target.transform.origin.normalized().y * speed * delta
+		if(abs(self.transform.origin.x - target.transform.origin.x) < .1 && 
+			abs(self.transform.origin.y - target.transform.origin.y) < .1):
+			#trigger stat gain
+			target.queue_free()
+			self.animation = "IDLE"
+			target = null
+	pass
 
-func feed():
+func feed(var food):
 	state = states.FEED
 	self.animation = states.keys()[state]
+	target = foodScene.instance()
+	get_parent().add_child(target)
+	target.transform.origin.x = rand_range(472, 552)
+	target.transform.origin.y = rand_range(312, 376)
+	target.get_node("AnimatedSprite").animation = foods.keys()[food];
+	
 
 func train(var activity):
 	state = activity

@@ -37,10 +37,8 @@ func _on_LeftButton_pressed():
 		return
 	
 	if(isVisible && menu == menus.MAIN):
-		menuSelection = 0;
-		isVisible = false
-		RPGGuy.show()
-		animation.hide()
+		menuSelection = 0
+		hideMenu()
 		return
 	
 	menu = menus.MAIN;
@@ -65,6 +63,9 @@ func _on_CenterButton_pressed():
 		menus.TRAIN:
 			if(menuSelection > 2):
 				menuSelection = 0
+		menus.FEED:
+			if(menuSelection > 2):
+				menuSelection = 0
 		menus.HARVEST:
 			if(menuSelection > 1):
 				menuSelection = 0
@@ -85,10 +86,7 @@ func _on_RightButton_pressed():
 			if(menuSelection == 0):
 				menu = menus.TRAIN;
 			if(menuSelection == 1):
-				RPGGuy.feed()
-				isVisible = false
-				RPGGuy.show()
-				animation.hide()
+				menu = menus.FEED;
 			if(menuSelection == 2):
 				menu = menus.EXPLORE;
 			if(menuSelection == 3):
@@ -97,16 +95,19 @@ func _on_RightButton_pressed():
 		menus.TRAIN:
 			if(menuSelection == 0):
 				RPGGuy.train(RPGGuy.states.AGILITY)
-				pass
 			if(menuSelection == 1):
 				RPGGuy.train(RPGGuy.states.BRAWN)
-				pass
 			if(menuSelection == 2):
 				RPGGuy.train(RPGGuy.states.MIND)
-				pass
-			isVisible = false
-			RPGGuy.show()
-			animation.hide()
+			hideMenu()
+		menus.FEED:
+			if(menuSelection == 0):
+				RPGGuy.feed(RPGGuy.foods.MEAT)
+			if(menuSelection == 1):
+				RPGGuy.feed(RPGGuy.foods.BOOKS)
+			if(menuSelection == 2):
+				RPGGuy.feed(RPGGuy.foods.BOOTS)
+			hideMenu()
 		menus.HARVEST:
 			if(menuSelection == 0): #vs RPG gal
 				get_tree().change_scene("res://Scenes/BattleScene.tscn");
@@ -125,3 +126,12 @@ func firstButtonPressed():
 	animation.show()
 	animation.animation = menus.keys()[menu]
 	animation.frame = menuSelection
+	for child in get_tree().get_nodes_in_group("food"):
+		child.hide()
+
+func hideMenu():
+	isVisible = false
+	RPGGuy.show()
+	animation.hide()
+	for child in get_tree().get_nodes_in_group("food"):
+		child.show()

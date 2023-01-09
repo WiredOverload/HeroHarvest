@@ -1,10 +1,27 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/tamagachi.png" type="Texture" id=2]
 [ext_resource path="res://assets/Menu/MainMenu.png" type="Texture" id=3]
 [ext_resource path="res://assets/Menu/tamaChar1.png" type="Texture" id=4]
 [ext_resource path="res://scripts/RPGGuy.gd" type="Script" id=5]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/entities/food.tscn" type="PackedScene" id=7]
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 1
+atlas = ExtResource( 3 )
+region = Rect2( 0, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 1
+atlas = ExtResource( 3 )
+region = Rect2( 32, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 1
+atlas = ExtResource( 3 )
+region = Rect2( 64, 96, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 1
@@ -58,6 +75,11 @@ region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "FEED",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "HARVEST",
@@ -158,6 +180,7 @@ animations = [ {
 } ]
 
 [node name="Menu" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
@@ -208,15 +231,17 @@ visible = false
 position = Vector2( 512, 336 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
-animation = "MAIN"
+animation = "FEED"
 
 [node name="RPGGuy" type="AnimatedSprite" parent="."]
 position = Vector2( 512, 376 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 20 )
 animation = "IDLE"
+frame = 1
 playing = true
 script = ExtResource( 5 )
+foodScene = ExtResource( 7 )
 
 [connection signal="pressed" from="UI/LeftButton" to="UI" method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="UI/CenterButton" to="UI" method="_on_CenterButton_pressed"]
