@@ -2,9 +2,9 @@ extends Node
 
 
 #player and RGP Gal stats
-var playerBrawn = 0;
-var playerAgility = 0;
-var playerMind = 0;
+var playerBrawn = 1;
+var playerAgility = 1;
+var playerMind = 1;
 var current_weapon = ["spear", "bow", "staff"][randi() % 3]
 
 var RPGAgility = 0;
@@ -64,9 +64,9 @@ func _on_Menu_harvest():
 	if RPGAgility >= RPGBrawn && RPGAgility >= RPGMind:
 		current_weapon = "bow"
 	elif RPGBrawn >= RPGMind:
-		current_weapon = "staff"
-	else:
 		current_weapon = "spear"
+	else:
+		current_weapon = "staff"
 	
 	RPGAgility = 0
 	RPGBrawn = 0

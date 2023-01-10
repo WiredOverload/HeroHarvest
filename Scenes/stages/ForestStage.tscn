@@ -83,6 +83,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -10.0
 autoplay = true
 
 [connection signal="receive" from="EnemyDeathEventListener" to="." method="_on_EnemyDeathEventListener_receive"]

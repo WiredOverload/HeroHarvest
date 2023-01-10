@@ -19,11 +19,9 @@ var max_arrow_target_dist = 4.0
 
 onready var managerScene = get_tree().root.find_node("Manager", true, false)
 
-var level = 1 setget set_level
 var attackPower = 0
 
-func set_level(l):
-	level = l
+func update_stats():
 	if managerScene:
 		hit_points = 3 + managerScene.playerMind
 		current_hp = hit_points
@@ -53,7 +51,7 @@ func update_weapon():
 			$AnimationTree.tree_root = weaponanims_staff
 
 func _ready():
-	set_level(level)
+	update_stats()
 	EventBus.emit("player_health_update", self)
 	update_weapon()
 

@@ -9,3 +9,4 @@ func _get_move_target(target: Spatial):
 func _perform_attack(player: Spatial, target_position: Vector3, at_target: bool):
 	if at_target and not in_hitstun:
 		queue_attack()
+

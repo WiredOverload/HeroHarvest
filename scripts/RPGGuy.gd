@@ -56,12 +56,15 @@ func feed(var food):
 	match(food):
 		foods.MEAT:
 			target.power = managerScene.meats[0]
+			target.type = target.types.MEAT
 			managerScene.meats.pop_front()
 		foods.BOOTS:
 			target.power = managerScene.boots[0]
+			target.type = target.types.BOOTS
 			managerScene.boots.pop_front()
 		foods.BOOKS:
 			target.power = managerScene.books[0]
+			target.type = target.types.BOOKS
 			managerScene.books.pop_front()
 	
 	targets.append(target)

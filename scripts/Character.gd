@@ -169,8 +169,9 @@ func apply_hit(source):
 			current_hp -= 1
 			EventBus.emit("player_health_update", self)
 		else:
-			current_hp -= 1 + floor(source.attackPower / 2)
-		if current_hp == 0:
+			var dmg = 1 + floor(source.attackPower / 2)
+			current_hp -= dmg
+		if current_hp <= 0:
 			die()
 
 func reset_attack_count():

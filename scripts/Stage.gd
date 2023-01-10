@@ -21,3 +21,4 @@ func next_level():
 	EventBus.emit("enemies_killed", enemies_killed)
 	set_level(level + 1)
 	EventBus.emit("next_level", level)
+
