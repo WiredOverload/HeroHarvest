@@ -449,6 +449,7 @@ margin_right = 480.0
 margin_bottom = 496.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+shortcut_in_tooltip = false
 shortcut = SubResource( 51 )
 
 [node name="CenterButton" type="Button" parent="UI"]
@@ -459,6 +460,7 @@ margin_right = 536.0
 margin_bottom = 520.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+shortcut_in_tooltip = false
 shortcut = SubResource( 53 )
 
 [node name="RightButton" type="Button" parent="UI"]
@@ -469,13 +471,14 @@ margin_right = 592.0
 margin_bottom = 496.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+shortcut_in_tooltip = false
 shortcut = SubResource( 55 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI"]
 position = Vector2( 512, 300 )
 scale = Vector2( 2.34375, 2.34375 )
 frames = SubResource( 41 )
-frame = 7
+frame = 6
 playing = true
 
 [node name="MenuSelection" type="AnimatedSprite" parent="UI"]
