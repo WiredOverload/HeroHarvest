@@ -6,23 +6,13 @@ export(float) var aim_area_radius := 1.0
 var arrow_scene := preload("res://scenes/entities/Projectile.tscn")
 var arrow_speed: float = 5.0
 
+var current_target = null
+var target_player = null
+
 func _reset_anim():
 	._reset_anim()
 	current_target = null
 	target_player = null
-
-
-var dmg_reduction := 0.4
-
-func calc_def(amount: int) -> int:
-	var output: int
-	var calc: int
-	calc = amount * dmg_reduction
-	output = amount - calc
-	return output + 1
-
-var current_target = null
-var target_player = null
 
 func _get_move_target(target: Spatial):
 	if current_target == null:
@@ -30,10 +20,6 @@ func _get_move_target(target: Spatial):
 		current_target = target.global_translation + dart * keep_distance
 		target_player = target
 	return current_target
-
-static func _random_dir() -> Vector3:
-	var roll = rand_range(-PI, PI)
-	return Vector3(cos(roll), 0, sin(roll))
 
 func _perform_attack(player: Spatial, target_position: Vector3, at_target: bool):
 	if at_target and not attack_queued and not is_attacking and not in_hitstun:
@@ -51,3 +37,7 @@ func launch_arrow():
 	
 	current_target = null
 	target_player = null
+
+static func _random_dir() -> Vector3:
+	var roll = rand_range(-PI, PI)
+	return Vector3(cos(roll), 0, sin(roll))

@@ -475,7 +475,7 @@ shortcut_in_tooltip = false
 shortcut = SubResource( 55 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="UI"]
-position = Vector2( 511, 300 )
+position = Vector2( 512, 300 )
 scale = Vector2( 2.34375, 2.34375 )
 frames = SubResource( 41 )
 frame = 6

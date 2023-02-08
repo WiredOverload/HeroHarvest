@@ -11,7 +11,7 @@ nodes/Animation/node = SubResource( 28 )
 nodes/Animation/position = Vector2( -198, 155 )
 nodes/TimeScale/node = SubResource( 29 )
 nodes/TimeScale/position = Vector2( 92, 196 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "bow_death"
@@ -27,7 +27,7 @@ nodes/Animation/node = SubResource( 25 )
 nodes/Animation/position = Vector2( -128, 154 )
 nodes/TimeScale/node = SubResource( 26 )
 nodes/TimeScale/position = Vector2( 100, 160 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
+node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
 
 [sub_resource type="AnimationNodeAnimation" id=22]
 animation = "empty"
@@ -72,17 +72,17 @@ auto_advance = true
 states/attack1/node = SubResource( 30 )
 states/attack1/position = Vector2( 548.397, 59.2383 )
 states/death/node = SubResource( 21 )
-states/death/position = Vector2( -48, 116 )
+states/death/position = Vector2( -73, 145 )
 states/dodgeroll/node = SubResource( 27 )
-states/dodgeroll/position = Vector2( 118, 162 )
+states/dodgeroll/position = Vector2( 134, 185.238 )
 states/empty/node = SubResource( 22 )
 states/empty/position = Vector2( 548.397, 162 )
 states/hitstun/node = SubResource( 18 )
-states/hitstun/position = Vector2( 118, 72 )
+states/hitstun/position = Vector2( 134, 111 )
 states/idle/node = SubResource( 10 )
 states/idle/position = Vector2( 329, 162 )
 states/run/node = SubResource( 11 )
 states/run/position = Vector2( 329, 72 )
 transitions = [ "idle", "run", SubResource( 12 ), "run", "idle", SubResource( 17 ), "dodgeroll", "idle", SubResource( 31 ), "run", "attack1", SubResource( 32 ), "idle", "attack1", SubResource( 33 ), "attack1", "idle", SubResource( 34 ), "attack1", "empty", SubResource( 35 ), "empty", "attack1", SubResource( 36 ) ]
 start_node = "idle"
-graph_offset = Vector2( -189.269, -57.7618 )
+graph_offset = Vector2( -213.603, -33.7618 )

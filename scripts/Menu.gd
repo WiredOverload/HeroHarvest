@@ -18,6 +18,17 @@ func _ready():
 #	pass
 
 
+func _on_Manager_books_changed(new):
+	emit_signal("books_changed", new)
+
+
+func _on_Manager_boots_changed(new):
+	emit_signal("boots_changed", new)
+
+
+func _on_Manager_meats_changed(new):
+	emit_signal("meats_changed", new)
+
 func explore(type: String):
 	battle_scene.create_stage(type, 1)
 

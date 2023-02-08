@@ -51,7 +51,6 @@ config/icon="res://icon.png"
 [autoload]
 
 EventBus="*res://scripts/EventBus/autoload/EventBus.gd"
-Manager="*res://scenes/Manager.tscn"
 
 [editor_plugins]
 
