@@ -1,35 +1,24 @@
 extends Node
 
+class RPGStats:
+	var brawn: int
+	var agility: int
+	var mind: int
+	func _init(b = 0, a = 0, m = 0):
+		brawn = b
+		agility = a
+		mind = m
 
 #player and RGP Gal stats
-var playerBrawn = 1;
-var playerAgility = 1;
-var playerMind = 1;
-var current_weapon = ["spear", "bow", "staff"][randi() % 3]
 
-var RPGAgility = 0;
-var RPGBrawn = 0;
-var RPGMind = 0;
+var player_stats := RPGStats.new(1, 1, 1)
+var current_weapon := "spear"
 
-signal boots_changed(new)
-signal meats_changed(new)
-signal books_changed(new)
+var tama_stats := RPGStats.new()
 
-var meats = [] setget meats_set
-func meats_set(new):
-	meats = new
-	emit_signal("meats_changed", new)
-		
-var boots = [] setget boots_set
-func boots_set(new):
-	boots = new
-	emit_signal("boots_changed", new)
-		
-var books = [] setget books_set
-func books_set(new):
-	books = new
-	emit_signal("books_changed", new)
-
+var foods := []
+var boots := []
+var tomes := []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,36 +27,42 @@ func _ready():
 	current_weapon = ["spear", "bow", "staff"][randi() % 3]
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_ItemGetEventListener_receive(arg: Item.ItemDef):
 	match(arg.item_type):
 		"food":
-			meats.append(arg.item_level)
-			meats_set(meats)
+			foods.append(arg.item_level)
+			foods.sort()
 		"boot":
 			boots.append(arg.item_level)
-			boots_set(boots)
+			boots.sort()
 		"tome":
-			books.append(arg.item_level)
-			books_set(books)
+			tomes.append(arg.item_level)
+			tomes.sort()
 
 
-func _on_Menu_harvest():
-	playerAgility += RPGAgility
-	playerBrawn += RPGBrawn
-	playerMind += RPGMind
+func harvest():
+	player_stats.agility += tama_stats.agility
+	player_stats.brawn += tama_stats.brawn
+	player_stats.mind += tama_stats.mind
 	
-	if RPGAgility >= RPGBrawn && RPGAgility >= RPGMind:
-		current_weapon = "bow"
-	elif RPGBrawn >= RPGMind:
-		current_weapon = "spear"
-	else:
-		current_weapon = "staff"
+	var stat_priorities = [
+		["brawn", tama_stats.brawn],
+		["agility", tama_stats.agility],
+		["mind", tama_stats.mind]]
 	
-	RPGAgility = 0
-	RPGBrawn = 0
-	RPGMind = 0
+	stat_priorities.shuffle()
+	stat_priorities.sort_custom(self, "_stat_priorities_comparator")
+	
+	match stat_priorities[0][0]:
+		"brawn":
+			current_weapon = "spear"
+		"agility":
+			current_weapon = "bow"
+		"mind":
+			current_weapon = "bow"
+	
+	tama_stats = RPGStats.new()
+
+func _stat_priorities_comparator(a, b):
+	return a[1] > b[1]

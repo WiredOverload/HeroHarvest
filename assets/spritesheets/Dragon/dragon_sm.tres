@@ -31,7 +31,7 @@ auto_advance = true
 
 [resource]
 states/death/node = SubResource( 1 )
-states/death/position = Vector2( 147, 148 )
+states/death/position = Vector2( 139, 100 )
 states/firebreathe/node = SubResource( 2 )
 states/firebreathe/position = Vector2( 551, 157 )
 states/idle/node = SubResource( 3 )
@@ -42,4 +42,4 @@ states/walk/node = SubResource( 5 )
 states/walk/position = Vector2( 333, 54 )
 transitions = [ "idle", "walk", SubResource( 6 ), "walk", "idle", SubResource( 7 ), "stomp", "idle", SubResource( 8 ), "firebreathe", "idle", SubResource( 9 ) ]
 start_node = "idle"
-graph_offset = Vector2( -134, 15 )
+graph_offset = Vector2( -178, -81 )
