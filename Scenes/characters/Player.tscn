@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/characters/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/spritesheets/Wizard/wizard_sm_staff.tres" type="AnimationNodeStateMachine" id=2]
+[ext_resource path="res://assets/spritesheets/Heroine1/heroine_sm_spear.tres" type="AnimationNodeStateMachine" id=2]
 [ext_resource path="res://assets/spritesheets/Heroine1/heroine_spear_frames.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://scripts/VirtualCamera.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=5]
@@ -1234,9 +1234,11 @@ tree_root = ExtResource( 2 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 6 )
 parameters/conditions/attack1 = false
+parameters/conditions/attack2 = false
 parameters/conditions/not_running = false
 parameters/conditions/running = false
 parameters/attack1/TimeScale/scale = 1.0
+parameters/attack2/TimeScale/scale = 1.0
 parameters/dodgeroll/TimeScale/scale = 1.0
 
 [node name="VirtualCamera" type="Position3D" parent="." index="5"]

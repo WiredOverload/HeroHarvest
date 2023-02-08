@@ -11,7 +11,7 @@ nodes/Animation/node = SubResource( 22 )
 nodes/Animation/position = Vector2( -220, 120 )
 nodes/TimeScale/node = SubResource( 23 )
 nodes/TimeScale/position = Vector2( 40, 140 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=29]
 animation = "attack_slash_spear"
@@ -24,7 +24,7 @@ nodes/Animation/node = SubResource( 29 )
 nodes/Animation/position = Vector2( -186, 143 )
 nodes/TimeScale/node = SubResource( 30 )
 nodes/TimeScale/position = Vector2( 100, 140 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=21]
 animation = "death_spear"
@@ -41,7 +41,7 @@ nodes/Animation/position = Vector2( -400, 177 )
 nodes/TimeScale/node = SubResource( 35 )
 nodes/TimeScale/position = Vector2( -133, 167 )
 nodes/output/position = Vector2( 100, 180 )
-node_connections = [ "TimeScale", 0, "Animation", "output", 0, "TimeScale" ]
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
 [sub_resource type="AnimationNodeAnimation" id=18]
 animation = "hitstun_spear"
@@ -81,19 +81,19 @@ auto_advance = true
 
 [resource]
 states/attack1/node = SubResource( 24 )
-states/attack1/position = Vector2( 722, 72 )
+states/attack1/position = Vector2( 554, 38 )
 states/attack2/node = SubResource( 31 )
-states/attack2/position = Vector2( 722, 162 )
+states/attack2/position = Vector2( 554, 162 )
 states/death/node = SubResource( 21 )
 states/death/position = Vector2( -49, 145 )
 states/dodgeroll/node = SubResource( 36 )
-states/dodgeroll/position = Vector2( 134, 181 )
+states/dodgeroll/position = Vector2( 134, 162 )
 states/hitstun/node = SubResource( 18 )
-states/hitstun/position = Vector2( 134, 72 )
+states/hitstun/position = Vector2( -49, 47 )
 states/idle/node = SubResource( 10 )
 states/idle/position = Vector2( 329, 162 )
 states/run/node = SubResource( 11 )
-states/run/position = Vector2( 329, 72 )
+states/run/position = Vector2( 329, 38 )
 transitions = [ "idle", "run", SubResource( 12 ), "run", "idle", SubResource( 17 ), "run", "attack1", SubResource( 25 ), "idle", "attack1", SubResource( 26 ), "attack1", "idle", SubResource( 28 ), "attack1", "attack2", SubResource( 32 ), "attack2", "idle", SubResource( 33 ), "dodgeroll", "idle", SubResource( 37 ) ]
 start_node = "idle"
-graph_offset = Vector2( -227, 48 )
+graph_offset = Vector2( -299, -33 )
